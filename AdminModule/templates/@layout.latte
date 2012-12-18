@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<meta charset="utf-8">
+
+	<title>Newsletter - Administracia</title>
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="{$basePath}/system/css/admin/reset.css">
+	<link rel="stylesheet" href="{$basePath}/system/css/admin/text.css">
+	<link rel="stylesheet" href="{$basePath}/system/css/admin/960.css">
+	<link rel="stylesheet" href="{$basePath}/system/css/admin/style.css">
+	<link rel="stylesheet" href="{$basePath}/system/dist/redactor/css/redactor.css" >
+
+	<script type="text/javascript" src="{$basePath}/system/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/system/js/netteForms.js"></script>
+	<script type="text/javascript" src="{$basePath}/system/dist/redactor/redactor.js"></script>
+
+	<script>
+	$(function () {
+		var elem = $('a[data-question]');
+		elem.click(function (e) {
+			var $this = $(this);
+			if (!confirm($this.data('question'))) {
+				e.preventDefault();
+			}
+		});
+	});
+	</script>
+
+</header>
+<body>
+
+<div id="container" class="container_12">
+
+<header class="grid_12">
+	<h1>Newsletter - Administrácia</h1>
+</header>
+
+<div class="clear"></div>
+
+<section id="menu" class="grid_3" n:if="$user->isLoggedIn()">
+
+<ul>
+	<li><a n:href="Default:default">Home</a></li>
+	<li><a n:href="Newsletter:add">Nový newsletter</a></li>
+	<li><a n:href="sponsors">Sponzori</a></li>
+	<li><a n:href="email">Odoslať newsletter</a></li>
+	<li><a n:href=":Front:Default:default">web</a></li>
+</ul>
+
+</section>
+
+<section id="main" class="grid_9">
+<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+{include #content}
+</section>
+
+</div>
+
+</body>
+</html>

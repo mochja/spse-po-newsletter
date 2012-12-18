@@ -1,0 +1,65 @@
+
+
+
+{block content}
+
+
+<header><h1>Newsletter</h1></header>
+	<!--<table>
+		<thead></thead>
+		<tfoot></tfoot>
+		<tbody>
+			<th>
+				<td>#</td>
+				<td>Číslo</td>
+				<td>Vytvorený</td>
+			<th>
+		</tbody>
+	</table>
+	-->
+
+<div class="grid_3 alpha">
+	<ul>
+	{foreach $newsletters as $n}
+{if $iterator->counter%20 == 0}
+	</ul>
+</div>
+<div n:class="$iterator->counter<40 ? omega : alpha, grid_3">
+	<ul>
+{/if}
+		<li><a n:href="Newsletter:edit, $n->id">{$n->number|nformat}</a></li>
+	{/foreach}
+	</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="grid_3 alpha info-box">
+	<header><h1>Návštevnosť</h1></header>
+	<ul>
+		<li>Celková návštevnosť: -</li>
+		<li>počet zobrazení: -</li>
+		<li>Dnešná návštevnosť: -</li>
+		<li>Najviac zobrazení: - (<a href="#">č. 00/0000</a>)</li>
+	</ul>
+</div>
+
+<div class="grid_3 omega info-box">
+	<header><h1>Štatistika</h1></header>
+	<ul>
+		<li>Článkov: -</li>
+		<li>Topiek: -</li>
+		<li>Fotografií: -</li>
+		<li>Disk usage: 20mb</li>
+	</ul>
+</div>
+
+<div class="grid_3 alpha info-box">
+	<header><h1>Ostatné</h1></header>
+	<ul>
+		<li>Celkový počet emailov: {$email_count}</li>
+		<li>Aktívny sponzori: 13</li>
+	</ul>
+</div>
+
+<div class="clear"></div>

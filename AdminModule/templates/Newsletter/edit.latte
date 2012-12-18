@@ -1,0 +1,49 @@
+
+
+{block content}
+
+<h1>Editovať newsletter</h1>
+
+{control newsletterForm}
+
+<h2>Obsah newslettera</h2>
+
+<p><a n:href="newContent, $newsletter->id">Pridať obsah</a></p>
+
+<h3>Články <small><a n:href="newContent, $newsletter->id, article">add</a></small></h3>
+
+<p n:if="count($articles) == 0">Ešte ste nepridali žiadny článok, pridať ho môžete kliknutím <a n:href="newContent, $newsletter->id, article">sem</a>.</p>
+
+<table style="width: 100%;" class="a-list" n:if="count($articles) > 0">
+<tr style="background: red">
+	<td width="40"><!-- --></td>
+	<td width="260">Titulok</td>
+	<td>Text</td>
+</tr>
+{foreach $articles as $article}
+<tr>
+	<td><span class="icon"><a n:href="editContent, $article->id">&amp;</a> <a n:href="delContent, $article->id" data-question="Naozaj chcete zmazať tento článok?">x</a></span></td>
+	<td>{$article->title|truncate:40}</td>
+	<td>{$article->text|striptags|truncate:70}</td>
+</tr>
+{/foreach}
+</table>
+
+<h3>Flash <small><a n:href="newContent, $newsletter->id, top">add</a></small></h3>
+
+<p n:if="count($fibers) == 0">Ešte ste nepridali žiadnu flashku, pridať ju môžete kliknutím <a n:href="newContent, $newsletter->id, top">sem</a>.</p>
+
+<table style="width: 100%;" class="a-list" n:if="count($fibers) > 0">
+<tr style="background: red">
+	<td width="40"><!-- --></td>
+	<td width="260">Titulok</td>
+	<td>Text</td>
+</tr>
+{foreach $fibers as $article}
+<tr>
+	<td><span class="icon"><a n:href="editContent, $article->id">&amp;</a> <a n:href="del_content, $article->id" data-question="Naozaj chcete zmazať túto flashku?">x</a></span></td>
+	<td>{$article->title|truncate:40}</td>
+	<td>{$article->text|striptags|truncate:70}</td>
+</tr>
+{/foreach}
+</table>

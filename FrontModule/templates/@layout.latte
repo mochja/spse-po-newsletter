@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="SPŠE-PO Newsletter">
+	<meta name="author" content="janmochnak@gmail.com">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+	<title>impulz - Newsletter SPŠE Prešov</title>
+	<link rel="stylesheet" media="all" href="{$basePath}/system/css/reset.css" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/system/css/style.css" type="text/css">
+        <link href="{$basePath}/system/css/lightbox.css" rel="stylesheet" />
+        <script src="{$basePath}/system/js/jquery-1.7.2.min.js"></script>
+        <script src="{$basePath}/system/js/lightbox.js"></script>        
+	{block head}{/block}
+</head>
+<body>
+
+	<body>
+		<header>
+			<!-- -->
+			<h3>{block date}{/block}</h3>
+		</header>
+
+		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+		<div id="admin-side-panel" n:if="$user->isLoggedIn()">
+			<ul>
+				<li><a n:href=":Admin:Default:default"><img src="" width="32" height="32" alt="" title="" /></a></li>
+			</ul>
+		</div>
+
+		{include #content}
+
+		<div class="clear"></div>
+
+	<footer>&copy;2009-{date(Y)} <a href="http://spse-po.sk">SPŠE-PO</a>; Slavomír Kožár Jr., Ján Mochňak</footer>
+	<!-- Running on nettefw, Design by Slavomir Kozar jr. ??? -->
+</body>
+</html>

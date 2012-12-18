@@ -1,0 +1,28 @@
+
+
+{block content}
+
+<h1>Pridať obsah</h1>
+
+{form newsletterContentForm}
+
+{foreach $form->getErrors() as $e}
+{$e}
+{/foreach}
+
+Titulok: {input title}
+<br><br>
+Typ: {input type}
+<br></br>
+{input text}
+
+<br>{input submit}
+
+{/form}
+
+<script>
+$(function() {
+	var area = $("#frmnewsletterContentForm-text");
+	area.redactor({ css: 'style.css', autoresize: true, fixed: false, imageUpload: '../demo/scripts/image_upload.php', imageGetJson: '../demo/json/data.json' });
+});
+</script>

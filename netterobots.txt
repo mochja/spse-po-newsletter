@@ -1,0 +1,2 @@
+Dissallow: /log
+Dissallow: /temp
