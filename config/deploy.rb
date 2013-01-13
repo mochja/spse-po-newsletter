@@ -86,11 +86,10 @@ namespace :deploy do
 
 end
 
-
 namespace :composer do
   desc "run composer install and ensure all dependencies are installed"
   task :install do
-      run "cd #{release_path} && php composer.phar install"
+      run "cd #{release_path} && php -d \"suhosin.executor.include.whitelist = phar\" composer.phar install"
   end
 end
 
