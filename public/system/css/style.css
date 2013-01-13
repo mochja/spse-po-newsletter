@@ -1,0 +1,181 @@
+/**
+ *
+ * @copyright 2012 SPSE_PO <spse-po.sk>
+ */
+
+
+
+body { width:950px; margin:30px auto; font-size: 12pt; font-family: "Times New Roman", serif; }
+
+body > header { display: block; height:300px; background-image:url('../images/newsletter.gif'); }
+
+body > footer {
+	color:white;
+	font-size: 1.137em;
+	display: block;
+	padding: 0;
+	background:url('../images/footer.gif') repeat-x;
+	margin-top:20px;
+	text-align:center;
+	line-height: 40px;
+}
+
+body > footer a {
+	color: white;
+}
+
+.clear { clear: both; }
+
+/** Header */
+header > h3 {
+	display: inline-block;
+	position: relative;
+	top: 230px;
+	left: 0;
+	width: 170px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 2.4em;
+	font-weight: 700;
+	letter-spacing: 0.035em;
+}
+
+section#main {
+	width: 635px;
+	float: left;
+}
+
+article {
+	border: 1px solid black;
+	margin: 20px 0 0 0;
+	min-height: 2em;
+}
+
+article > header {
+	display: block;
+	width: 633px;
+	padding: 0;
+	margin: 0;
+	background: url('../images/nadpis1.gif') repeat-x;
+}
+
+article > header > h1 {
+	font-size: 14pt;
+	font-weight: 700;
+	line-height: 24px;
+	color: white;
+	padding: 0 5px;
+	margin: 0;
+}
+
+article > p {
+	padding: 0;
+	text-align: justify;
+	margin: 5px;
+	line-height: 1.2em;
+	letter-spacing: 0.055em;
+}
+
+article > p + p {
+	/* text-indent: 1.275em; */
+	margin-top: 0;
+}
+
+article > footer {
+	display: block;
+	clear: both;
+	text-align: right;
+	padding: 10px 5px 5px 5px;
+	font-style: italic;
+}
+
+article img {
+	margin: 5px;
+	display: block;
+}
+
+article#sponsors img {
+	margin: 5px auto 10px auto;
+}
+
+article img.left {
+	float: left;
+	clear: left;
+	margin-left: 2px;
+}
+
+article img.right {
+	float: right;
+	clear: right;
+	margin-right: 2px;
+}
+
+article img.center {
+	margin: 8px 242px;
+}
+
+aside {
+	width: 300px;
+	float: right;
+	font-size: 80%;
+}
+
+aside > article > header {
+	display: block;
+	width: 298px;
+	background: url('../images/nadpis2.gif') repeat-x;
+	margin: 0;
+	padding: 0;
+}
+
+aside > article > header > h1 {
+	font-size: 11pt;
+	line-height: 22px;
+	padding: 0 3px;
+}
+
+/** Side admin panel */
+
+div#admin-side-panel {
+	position: fixed;
+	left: 0;
+	top: 200px;
+	background: #ddffee;
+	padding: 10px;
+}
+
+div#admin-side-panel ul > li {
+	list-style: none;
+	margin-bottom: 10px;
+}
+
+div#admin-side-panel ul > li:last-child {
+	margin-bottom: 0;
+}
+
+b {
+	font-weight: bold;
+}
+
+article > ul {
+	margin: 0 0 0 45px;
+	list-style: disc inside;
+}
+
+article > ul > li {
+	padding: 1px 0;
+}
+
+article i {
+	font-style: italic;
+}
+
+article h2 {
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 10px 0 2px 5px;
+}
+
+img {
+	cursor: pointer !important;
+}

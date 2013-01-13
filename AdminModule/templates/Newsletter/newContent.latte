@@ -23,6 +23,12 @@ Typ: {input type}
 <script>
 $(function() {
 	var area = $("#frmnewsletterContentForm-text");
-	area.redactor({ css: 'style.css', autoresize: true, fixed: false, imageUpload: '../demo/scripts/image_upload.php', imageGetJson: '../demo/json/data.json' });
+	area.redactor({
+		css: 'style.css',
+		autoresize: true,
+		fixed: true,
+		imageUpload: {link Image:upload},
+		imageGetJson: {link Gallery:pictures}
+	});
 });
 </script>

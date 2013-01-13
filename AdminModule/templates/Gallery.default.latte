@@ -1,0 +1,24 @@
+{block content}
+
+<progress></progress><br>
+<button onclick="imagehandler.send()">SEND</button>
+<div id="dropbox"><span id="droplabel">Drop file here...</span></div>
+<label for="add_watermark">add waterkmark <input type="checkbox" name="add_watermark" checked></label>
+
+
+<script type="text/javascript" src="{$basePath}/system/js/resize.js"></script>
+<script type="text/javascript" src="{$basePath}/system/js/imageUpload.js"></script>
+<script>
+imagehandler.url = {link upload};
+imagehandler.watermarkUrl = {$basePath}+'/system/images/logo.png';
+imagehandler.watermarkThumbUrl = {$basePath}+'/system/images/logot.png';
+imagehandler.addWatermark();
+</script>
+<style type="text/css">
+	#dropbox {
+		background-color: red;
+		width: 400px;
+		height: 100px;
+	}
+	canvas { border: 1px solid black; }
+</style>

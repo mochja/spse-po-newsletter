@@ -1,1 +1,156 @@
 [Tue Dec 18 17:45:54 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/favicon.ico, referer: http://newsletter.dev/
+[Tue Dec 18 18:39:01 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN
+[Tue Dec 18 18:39:06 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN
+[Tue Dec 18 18:39:15 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN
+[Tue Dec 18 18:39:22 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN
+[Tue Dec 18 18:39:28 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN
+[Tue Dec 18 18:39:39 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN
+[Tue Dec 18 18:39:42 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/ADMIN_
+[Tue Dec 18 18:40:51 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:42:04 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:42:21 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:43:12 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:43:18 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:43:52 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:02 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:02 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:19 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:20 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:20 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:20 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/
+[Tue Dec 18 18:44:28 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:45:00 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:41 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:42 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:42 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:43 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:43 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:43 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:43 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:44 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:44 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:44 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:44 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:49:44 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/index.php
+[Tue Dec 18 18:50:29 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:50:44 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:50:51 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:51:08 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:52:25 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Tue Dec 18 18:55:58 2012] [error] [client 127.0.0.1] Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden: /Users/janmochnak/Sites/newsletter.dev/public/admin
+[Sun Dec 23 22:31:00 2012] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/favicon.ico, referer: http://newsletter.dev/
+[Sun Jan 13 04:26:14 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/favicon.ico, referer: http://newsletter.dev/
+[Sun Jan 13 04:57:11 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 04:57:11 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:01:47 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:01:47 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:01:56 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:01:56 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:02:19 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:02:19 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:03:43 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:03:43 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:05:37 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:05:37 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:08:32 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:08:57 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:09:10 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:09:10 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:09:41 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:09:41 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/admin, referer: http://newsletter.dev/admin/gallery/
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:12 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43
+[Sun Jan 13 05:26:58 2013] [error] [client 127.0.0.1] File does not exist: /Users/janmochnak/Sites/newsletter.dev/public/uploads, referer: http://newsletter.dev/admin/newsletter/edit-content/43

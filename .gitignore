@@ -1,3 +1,7 @@
 .idea/
 logs/
 temp/*
+libs/
+log/
+public/system/uploads/sponsors/*
+public/system/uploads/photos/*

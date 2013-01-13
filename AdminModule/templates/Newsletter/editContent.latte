@@ -18,10 +18,16 @@ Typ: {input type}
 <br>{input submit}
 
 {/form}
-
+<br><br><br>
 <script>
 $(function() {
 	var area = $("#frmnewsletterContentForm-text");
-	area.redactor({ css: 'style.css', autoresize: true, fixed: false, imageUpload: {link Image:upload}, imageGetJson: '../demo/json/data.json' });
+	area.redactor({
+		css: 'style.css',
+		autoresize: true,
+		fixed: true,
+		imageUpload: {link Image:upload},
+		imageGetJson: {link Gallery:pictures}
+	});
 });
 </script>

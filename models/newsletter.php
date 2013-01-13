@@ -21,7 +21,10 @@ class Newsletter extends \Nette\Object
 
 	public function get($id)
 	{
-		return $this->table->get($id);
+        if (empty($id)) {
+            throw new \ErrorException('id wasnt set.');
+        }
+		return $this->table->find($id)->fetch();
 	}
 
 	public function get_articles($id, $type=NULL)

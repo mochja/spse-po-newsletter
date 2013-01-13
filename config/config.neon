@@ -8,7 +8,7 @@ common:
 	parameters:
 		database:
 			driver: mysql
-			host: localhost
+			host: 127.0.0.1
 			dbname: mochnak
 			user: mochnak
 			password: kd5GF7fd[h&^

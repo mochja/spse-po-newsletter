@@ -17,14 +17,13 @@ use \Nette\Forms\Form;
 class NewsletterPresenter extends \BasePresenter
 {
 
+    /** @var \spse\newsletter\model\Newsletter */
 	private $nl;
 
-	public function startup()
-	{
-		parent::startup();
-
-		$this->nl = $this->context->newsletter;
-	}
+    public function __construct(\spse\newsletter\model\Newsletter $newsletter)
+    {
+        $this->nl = $newsletter;
+    }
 
 	public function actionDefault()
 	{
@@ -102,8 +101,8 @@ class NewsletterPresenter extends \BasePresenter
 		} else {
 			try {
 				$values['state'] = isset($values['state']) && $values['state'] == 1 ? $values['state'] : 0;
-				$this->nl->update((int) $this->context->httpRequest->getQuery('id'), $values);
-				$this->redirect('edit', $this->context->httpRequest->getQuery('id'));
+				$this->nl->update((int) $this->getParameter('id'), $values);
+				$this->redirect('edit', $this->getParameter('id'));
 			} catch(\PDOException $e) {
 				$form->addError($e->getMessage());
 			}
@@ -134,7 +133,7 @@ class NewsletterPresenter extends \BasePresenter
 	{
 		$values = $form->values;
 		if ($this->getAction() == 'newContent') {
-			$values['newsletter_id'] = (int) $this->getParam('id');
+			$values['newsletter_id'] = $this->getParameter('id');
 			try {
 				if ($this->nl->add_article($values)) {
 					$this->redirect('edit', $values['newsletter_id']);
@@ -145,15 +144,14 @@ class NewsletterPresenter extends \BasePresenter
 				$form->addError($e->getMessage());
 			}
 		} else if ($this->getAction() == 'editContent') {
-                   // dump($this->getParam('id'));
-			$id = (int) $this->getParam('id');
+			$id = $this->getParameter('id');
 			$bnl = $values['newsletter_id'];
 			unset($values['newsletter_id']);
 			try {
-				if ($this->nl->edit_article($id, $values)) {
-					$this->redirect('edit', $bnl );
+				if ($this->nl->edit_article($id, $values) !== FALSE) {
+					$this->redirect( 'edit', $bnl );
 				} else {
-					$form->addError('Nepodarilo sa upravit obsah');
+					$form->addError('Nepodarilo sa upravit obsah...');
 				}
 			} catch (\PDOException $e) {
 				$form->addError($e->getMessage());
