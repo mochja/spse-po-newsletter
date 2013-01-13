@@ -7,6 +7,13 @@ use Nette\Utils\Strings;
 use Nette\Utils\Finder;
 use Nette\Image;
 
+/**
+ * Json presenter, for gallery
+ *
+ * @author Jan Mochnak <janmochnak@gmail.com>
+ * @package newsletter
+ */
+
 /** @User */
 class GalleryPresenter extends \BasePresenter
 {
