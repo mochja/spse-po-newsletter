@@ -124,7 +124,7 @@ ImageHandler.prototype.parse = function () {
 				var ratio0 = canvas.width / canvas.height;
 
 				var x = 0;
-				if (ratio.toFixed(2) !== ratio0.toFixed(2)) x = canvas.height - Math.ceil(canvas.width * 140 / 210);
+				if (ratio.toFixed(2) !== ratio0.toFixed(2)) x = canvas.height - (canvas.width * 140 / 210);
 
 				var imData = null;
 
@@ -143,7 +143,9 @@ ImageHandler.prototype.parse = function () {
 					n.height = canvas.height;
 				}
 
-				var resized0 = new Resize(n.width, n.height, 210, 140, true, false, false, function (buffer) {
+				console.log(n);
+
+				var resized0 = new Resize(Math.ceil(n.width), Math.round(n.height), 210, 140, true, false, false, function (buffer) {
 					updateCanvas(sourceContext, sourceContext.createImageData(210, 140), buffer);
 					if ($self.putWatermark) {
 						sourceContext.drawImage($self.watermarkThumb, 210 - $self.watermarkThumb.width - 5, 140 - $self.watermarkThumb.height - 5);
