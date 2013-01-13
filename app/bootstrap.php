@@ -10,6 +10,7 @@ use Nette\Application\Routers\RouteList;
 // Load Nette Framework
 require LIBS_DIR . '/../vendor/autoload.php';
 
+umask(0);
 
 // Configure application
 $configurator = new Nette\Config\Configurator;
