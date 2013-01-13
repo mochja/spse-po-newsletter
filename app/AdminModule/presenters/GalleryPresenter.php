@@ -7,6 +7,7 @@ use Nette\Utils\Strings;
 use Nette\Utils\Finder;
 use Nette\Image;
 
+/** @User */
 class GalleryPresenter extends \BasePresenter
 {
 
