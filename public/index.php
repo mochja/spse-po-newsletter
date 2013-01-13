@@ -5,7 +5,7 @@ define('WWW_DIR', __DIR__.'/system');
 
 // absolute filesystem path to the application root
 # define('APP_DIR', '/home/www-server/www-data/mochnak/newsletter');
-define('APP_DIR', __DIR__.'/..');
+define('APP_DIR', __DIR__.'/../app');
 
 // absolute filesystem path to the libraries
 # define('LIBS_DIR', '/home/www-server/www-data/mochnak/libs');

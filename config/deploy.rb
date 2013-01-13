@@ -53,7 +53,7 @@ end
 # https://github.com/mpasternacki/capistrano-documentation-support-files/raw/master/default-execution-path/Capistrano%20Execution%20Path.jpg
 # https://github.com/namics/capistrano-php
 
-set :copy_exclude, ["config/deploy*", "Capfile", "tests", "README.md"]
+set :copy_exclude, ["config/deploy*", "Capfile", "tests", "README.md", ".idea"]
 
 namespace :deploy do
 
