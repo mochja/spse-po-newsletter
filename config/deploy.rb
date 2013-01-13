@@ -60,7 +60,7 @@ end
 # https://github.com/mpasternacki/capistrano-documentation-support-files/raw/master/default-execution-path/Capistrano%20Execution%20Path.jpg
 # https://github.com/namics/capistrano-php
 
-set :copy_exclude, ["config/deploy*", "capfile", "tests", "README.md", ".idea"]
+set :copy_exclude, ["config/deploy*", "capfile", "tests", "README.md", ".idea", ".DS_Store"]
 
 namespace :deploy do
   task :create_release_dir, :except => {:no_release => true} do
@@ -72,7 +72,7 @@ namespace :deploy do
       run "chmod -R g+w #{releases_path}/#{release_name}"
       run "chmod -R 777 #{releases_path}/#{release_name}/temp"
       run "chmod -R 777 #{releases_path}/#{release_name}/log"
-      run "mv #{releases_path}/#{release_name}/public /var/www/newsletter"
+      run "cp #{releases_path}/#{release_name}/public/* /var/www/newsletter"
     end
   end
 
