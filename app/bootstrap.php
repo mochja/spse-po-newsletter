@@ -8,7 +8,7 @@ use Nette\Application\Routers\RouteList;
 
 
 // Load Nette Framework
-require LIBS_DIR . '/Nette/loader.php';
+require LIBS_DIR . '/../vendor/autoload.php';
 
 
 // Configure application
@@ -16,12 +16,13 @@ $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 $configurator->setDebugMode(array("178.143.15.169"));
-$configurator->enableDebugger(__DIR__ . '/log');
+$configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
-$configurator->setTempDirectory(__DIR__ . '/temp');
+$configurator->setTempDirectory(__DIR__ . '/../temp');
 $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
+	->addDirectory(LIBS_DIR)
 	->register();
 
 // Create Dependency Injection container from config.neon file

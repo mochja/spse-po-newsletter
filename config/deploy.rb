@@ -8,6 +8,7 @@ set :repository, "git@github.com:mochja/newsletter.git"
 set :scm, "git"
 default_run_options[:pty] = true
 set :user, "mochnak"
+set :keep_releases, 1
 
 
 # use our keys, make sure we grab submodules, try to keep a remote cache
@@ -25,7 +26,7 @@ task :dev do
   role :web, "spse-po.sk", :primary => true
   set :deploy_to, "/var/www-data/mochnak/newsletter"
   set :app_environment, "dev"
-  set :branch, "master"
+  set :branch, "dev"
 end
 
 # task :staging do
@@ -72,7 +73,7 @@ namespace :deploy do
       run "chmod -R g+w #{releases_path}/#{release_name}"
       run "chmod -R 777 #{releases_path}/#{release_name}/temp"
       run "chmod -R 777 #{releases_path}/#{release_name}/log"
-      run "cp #{releases_path}/#{release_name}/public/* /var/www/newsletter"
+      run "cp -rf #{releases_path}/#{release_name}/public/* /var/www/newsletter"
     end
   end
 
@@ -89,7 +90,7 @@ end
 namespace :composer do
   desc "run composer install and ensure all dependencies are installed"
   task :install do
-      # run "cd #{release_path} && composer install"
+      run "cd #{release_path} && php composer.phar install"
   end
 end
 

@@ -3,13 +3,14 @@
 // absolute filesystem path to this web root
 define('WWW_DIR', __DIR__.'/system');
 
-// absolute filesystem path to the application root
-# define('APP_DIR', '/home/www-server/www-data/mochnak/newsletter');
-define('APP_DIR', __DIR__.'/../app');
-
-// absolute filesystem path to the libraries
-# define('LIBS_DIR', '/home/www-server/www-data/mochnak/libs');
-define('LIBS_DIR', __DIR__.'/../libs');
+// check if we are on deploy or not
+if (is_dir('/home/www-server/www-data/mochnak') === TRUE) {
+	define('APP_DIR', '/home/www-server/www-data/mochnak/newsletter/current/app');
+	define('LIBS_DIR', '/home/www-server/www-data/mochnak/newsletter/current/libs');
+} else {
+	define('APP_DIR', __DIR__.'/../app');
+	define('LIBS_DIR', __DIR__.'/../libs');
+}
 
 // uncomment this line if you must temporarily take down your site for maintenance
 // require APP_DIR . '/templates/maintenance.phtml';
