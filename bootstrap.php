@@ -22,16 +22,11 @@ $configurator->enableDebugger(__DIR__ . '/log');
 $configurator->setTempDirectory(__DIR__ . '/temp');
 $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
-	#->addDirectory(LIBS_DIR)
 	->register();
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 $container = $configurator->createContainer();
-
-// Setup router
-//$container->router[] = new SimpleRouter("Front:Default:default"); // new Route('index.php', 'Default:default', Route::ONE_WAY);
-//$container->router[] = new Route('<presenter>/<action>[/<id>]', 'Front:Default:default');
 
 $container->router[] = $frontRouter = new RouteList('Front');
 $frontRouter[] = new Route('<year>-<month>', 'Default:show');
