@@ -19,20 +19,20 @@
 	<script type="text/javascript" src="{$basePath}/system/dist/redactor/redactor.js"></script>
 
 	<style>
-	.iconable { font-family: EntypoRegular; font-size: 32px; text-decoration: none; color: black; }
-	.icon { line-height: 26px; }
+		.iconable { font-family: EntypoRegular; font-size: 32px; text-decoration: none; color: black; }
+		.icon { line-height: 26px; }
 	</style>
 
 	<script>
-	$(function () {
-		var elem = $('a[data-question]');
-		elem.click(function (e) {
-			var $this = $(this);
-			if (!confirm($this.data('question'))) {
-				e.preventDefault();
-			}
+		$(function () {
+			var elem = $('a[data-question]');
+			elem.click(function (e) {
+				var $this = $(this);
+				if (!confirm($this.data('question'))) {
+					e.preventDefault();
+				}
+			});
 		});
-	});
 	</script>
 
 </header>
