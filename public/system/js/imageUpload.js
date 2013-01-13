@@ -95,6 +95,7 @@ ImageHandler.prototype.createCanvas = function (file, callback) {
 			canvas.width = size.width;
 			canvas.height = size.height;
 			var context = canvas.getContext('2d');
+			canvas["fileName"] = file.name;
 
 			var resized0 = new Resize(img.width, img.height, size.width, size.height, true, true, false, function (buffer) {
 				updateCanvas(context, context.createImageData(size.width, size.height), buffer);
@@ -155,8 +156,7 @@ ImageHandler.prototype.parse = function () {
 						canvasContext.drawImage($self.watermark, canvas.width - $self.watermark.width - 30, canvas.height - $self.watermark.height - 30);
 					}
 					im.src = canvas.toDataURL('image/png');
-					// document.body.appendChild(im);
-					$self.post.push([canvas.toDataURL('image/png'), source.toDataURL('image/png')]);
+					$self.post.push([canvas.toDataURL('image/png'), source.toDataURL('image/png'), canvas.fileName]);
 				});
 				resized0.resize(imData);
 			});
