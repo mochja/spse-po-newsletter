@@ -14,7 +14,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		parent::beforeRender();
 
 		$this->template->registerHelper('nformat', function ($d) {
-		    return \spse\newsletter\model\Newsletter::build_number( (int)$d );
+		    return \spse\newsletter\model\Newsletter::buildNumber( (int)$d );
 		});
 	}
 

@@ -2,18 +2,15 @@
 
 namespace AdminModule;
 
-/**
- * Admin area, just for authentificated
- *
- * @author Jan Mochnak <janmochnak@gmail.com>
- * @package newsletter
- */
-
 use \Nette\Forms\Form;
 use \spse\newsletter\model\Newsletter;
 
 /**
+ * Admin area, just for authentificated
+ *
  * @User
+ * @author Jan Mochnak <janmochnak@gmail.com>
+ * @copyright 2013
  */
 class NewsletterPresenter extends \BasePresenter
 {
@@ -46,7 +43,7 @@ class NewsletterPresenter extends \BasePresenter
 	{
 		$form = $this['newsletterForm'];
 		$form->setDefaults(array(
-			'number' => Newsletter::build_number(Newsletter::date_to_number(new \DateTime))
+			'number' => Newsletter::buildNumber(Newsletter::dateToNumber(new \DateTime))
 		));
 		$form['state']->setDisabled();
 	}
@@ -57,7 +54,7 @@ class NewsletterPresenter extends \BasePresenter
 
 		$form = $this['newsletterForm'];
 		$form->setDefaults(array(
-			'number' => Newsletter::build_number($newsletter->number),
+			'number' => Newsletter::buildNumber($newsletter->number),
 			'state' => $newsletter->state
 		));
 
@@ -81,10 +78,9 @@ class NewsletterPresenter extends \BasePresenter
 	protected function createComponentNewsletterForm()
 	{
 		$form = new \Nette\Application\UI\Form;
-		$form->addText('number', 'Vydanie', 10, Newsletter::date_to_number(new \DateTime))
+		$form->addText('number', 'Vydanie', 10, Newsletter::dateToNumber(new \DateTime))
 			->addRule(Form::MIN_LENGTH, 'Vydanie musí obsahovať aspoň %d znaky.', 4)
 			->addRule(Form::PATTERN, 'Nesprávny formát vydania, zadávajte vo formáte mesiac/rok. napr.: 5/13, 5/2013', '([0-9]{1,2}/[0-9]{2,4})');
-		//$form->addTextarea('text');
 		$form->addCheckbox('state', 'Publikovať');
 		$form->addSubmit('s', 'Uložiť');
 
@@ -147,7 +143,7 @@ class NewsletterPresenter extends \BasePresenter
 		if ($this->getAction() == 'newContent') {
 			$values['newsletter_id'] = $this->getParameter('id');
 			try {
-				if ($this->newsletter->add_article($values)) {
+				if ($this->newsletter->addArticle($values)) {
 					$this->redirect('edit', $values['newsletter_id']);
 				} else {
 					$form->addError('Nepodarilo sa ulozit obsah');
@@ -160,7 +156,7 @@ class NewsletterPresenter extends \BasePresenter
 			$bnl = $values['newsletter_id'];
 			unset($values['newsletter_id']);
 			try {
-				if ($this->newsletter->edit_article($id, $values) !== FALSE) {
+				if ($this->newsletter->editArticle($id, $values) !== FALSE) {
 					$this->redirect( 'edit', $bnl );
 				} else {
 					$form->addError('Nepodarilo sa upravit obsah...');
@@ -174,8 +170,8 @@ class NewsletterPresenter extends \BasePresenter
 	public function actionDelContent($id)
 	{
 		try {
-			$nl = $this->newsletter->get_articles($id)->fetch()->newsletter_id;
-			if (!$this->newsletter->del_article($id)) {
+			$nl = $this->newsletter->getArticles($id)->fetch()->newsletter_id;
+			if (!$this->newsletter->delArticle($id)) {
 				$this->flashMessage('Nepodarilo sa odstranit obsah', 'error');
 			} else {
 				$this->flashMessage('Obsah odstaneny', 'info');
@@ -190,7 +186,7 @@ class NewsletterPresenter extends \BasePresenter
 
 	public function actionEditContent($id)
 	{
-		$article = $this->newsletter->get_articles($id)->fetch();
+		$article = $this->newsletter->getArticles($id)->fetch();
 		$form = $this['newsletterContentForm'];
 		$form->addHidden('newsletter_id', $article->newsletter_id);
 		$form->setDefaults(array(

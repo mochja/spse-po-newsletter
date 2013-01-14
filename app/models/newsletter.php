@@ -27,7 +27,7 @@ class Newsletter extends \Nette\Object
 		return $this->table->find($id)->fetch();
 	}
 
-	public function get_articles($id, $type=NULL)
+	public function getArticles($id, $type=NULL)
 	{
 		$r = $this->db->table('newsletter_article')->where('id', $id)->order('pos DESC');
 		if ( $type!== NULL)
@@ -45,17 +45,17 @@ class Newsletter extends \Nette\Object
 		return $this->table->insert($values);
 	}
 
-	public function add_article($values)
+	public function addArticle($values)
 	{
 		return $this->db->table('newsletter_article')->insert($values);
 	}
 
-	public function del_article($id)
+	public function delArticle($id)
 	{
 		return $this->db->table('newsletter_article')->find($id)->delete();
 	}
 
-	public function edit_article($id, $values)
+	public function editArticle($id, $values)
 	{
 		return $this->db->table('newsletter_article')->find($id)->update($values);
 	}
@@ -70,17 +70,17 @@ class Newsletter extends \Nette\Object
 	 * 512 -> 5/2012
 	 * defined as nformat helper in template, see basePresenter
 	 */
-	public static function build_number($int)
+	public static function buildNumber($int)
 	{
 		return floor($int / 100) . "/" . "20" . ($int-floor($int / 100)*100);
 	}
 
-	public static function build_datetime($int)
+	public static function buildDatetime($int)
 	{
 		return new \DateTime("20" . ($int-floor($int / 100)*100)."-".floor($int / 100)."-01");
 	}
 
-	public static function gen_new_numbers()
+	public static function genNewNumbers()
 	{
 		$d = new \DateTime();
 		$date = $d->modify("-1 month");
@@ -92,7 +92,7 @@ class Newsletter extends \Nette\Object
 		return $list;
 	}
 
-	public static function date_to_number(\DateTime $date)
+	public static function dateToNumber(\DateTime $date)
 	{
 		return (int)($date->format("n").$date->format("y"));
 	}

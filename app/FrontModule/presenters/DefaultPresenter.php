@@ -35,9 +35,15 @@ class DefaultPresenter extends \BasePresenter
 	{
 		$state = $this->getUser()->isLoggedIn() ? array(0, 1) : 1;
 
-		$last = $this->database->table('newsletter')->select('number')->where('state', $state)->order('id DESC')->limit(1)->fetch();
+		$last = $this->database->table('newsletter')
+			->select('number')
+			->where('state', $state)
+			->order('id DESC')
+			->limit(1)
+			->fetch();
+
 		if ($last) {
-			$last = $this->newsletter->build_datetime($last->number);
+			$last = $this->newsletter->buildDatetime($last->number);
 			$this->redirect('show', $last->format('Y'), $last->format('n'));
 		} else {
 			throw new \Nette\Application\BadRequestException;
@@ -49,7 +55,7 @@ class DefaultPresenter extends \BasePresenter
 		$state = $this->getUser()->isLoggedIn() ? array(0, 1) : 1;
 
 		$date = new \DateTime($year.'-'.$month.'-01');
-		$numberHash = $this->newsletter->date_to_number($date);
+		$numberHash = $this->newsletter->dateToNumber($date);
 
 		$newsletter = $this->template->newsletter = $this->database->table('newsletter')
 			->where('state', $state)

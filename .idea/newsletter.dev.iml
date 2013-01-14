@@ -4,6 +4,18 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/composer.phar" />
+          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/libs/imagine-v0.3.0.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/composer.phar" />
+          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/libs/imagine-v0.3.0.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 
