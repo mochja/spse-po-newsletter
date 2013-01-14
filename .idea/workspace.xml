@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c46c8c75-e9e5-4e2b-9edf-6540badb4b51" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/newsletter.php" afterPath="$PROJECT_DIR$/app/models/Newsletter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/newsletter.dev.iml" afterPath="$PROJECT_DIR$/.idea/newsletter.dev.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AdminModule/presenters/DefaultPresenter.php" afterPath="$PROJECT_DIR$/app/AdminModule/presenters/DefaultPresenter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AdminModule/presenters/NewsletterPresenter.php" afterPath="$PROJECT_DIR$/app/AdminModule/presenters/NewsletterPresenter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AdminModule/templates/Default/default.latte" afterPath="$PROJECT_DIR$/app/AdminModule/templates/Default/default.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/FrontModule/presenters/DefaultPresenter.php" afterPath="$PROJECT_DIR$/app/FrontModule/presenters/DefaultPresenter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/BasePresenter.php" afterPath="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
     </list>
     <ignored path="newsletter.dev.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -306,6 +297,11 @@
       <created>1355849862973</created>
       <updated>1355849862973</updated>
     </task>
+    <task id="LOCAL-00001" summary="refactoring">
+      <created>1358191138002</created>
+      <updated>1358191138002</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
