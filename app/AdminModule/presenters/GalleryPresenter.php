@@ -9,12 +9,11 @@ use Nette\Image;
 
 /**
  * Json presenter, for gallery
+ * @User
  *
  * @author Jan Mochnak <janmochnak@gmail.com>
- * @package newsletter
+ * @copyright 2013
  */
-
-/** @User */
 class GalleryPresenter extends \BasePresenter
 {
 
@@ -46,7 +45,7 @@ class GalleryPresenter extends \BasePresenter
 
 	public function actionPictures()
 	{
-		$basePath = preg_replace("#https?://[^/]+#A", "", rtrim($this->context->httpRequest->url->baseUrl, "/"));
+		$basePath = preg_replace('#https?://[^/]+#A', '', rtrim($this->context->httpRequest->url->baseUrl, '/'));
 
 		$filelist = array();
 		foreach (Finder::findFiles('t_*.jpg')->in(WWW_DIR.$this->path) as $key => $file)

@@ -2,47 +2,70 @@
 
 namespace FrontModule;
 
+use \spse\newsletter\model\Newsletter;
+
 /**
  * Default presenter.
  *
  * @author Jan Mochnak <janmochnak@gmail.com>
- * @package newsletter
+ * @copyright 2013
  */
 class DefaultPresenter extends \BasePresenter
 {
 
-	public function startup()
+	/**
+	 * @var \Nette\Database\Connection
+	 */
+	private $database;
+
+	/** @var Newsletter */
+	private $newsletter;
+
+	public function injectDatabase(\Nette\Database\Connection $database)
 	{
-		parent::startup();
+		$this->database = $database;
+	}
+
+	public function injectNewsletter(Newsletter $newsletter)
+	{
+		$this->newsletter = $newsletter;
 	}
 
 	public function actionDefault()
 	{
-		$db = $this->context->database;
+		$state = $this->getUser()->isLoggedIn() ? array(0, 1) : 1;
 
-		$state = $this->getUser()->isLoggedIn() ? 0 : 1;
-
-		$last = $db->table('newsletter')->where('state', $state)->order('id DESC')->limit(1)->fetch();
+		$last = $this->database->table('newsletter')->select('number')->where('state', $state)->order('id DESC')->limit(1)->fetch();
 		if ($last) {
-			$last = \spse\newsletter\model\Newsletter::build_datetime($last->number);
-			$this->redirect('show', $last->format("n"), $last->format("Y"));
+			$last = $this->newsletter->build_datetime($last->number);
+			$this->redirect('show', $last->format('Y'), $last->format('n'));
+		} else {
+			throw new \Nette\Application\BadRequestException;
 		}
 	}
 
 	public function actionShow($year, $month)
 	{
+		$state = $this->getUser()->isLoggedIn() ? array(0, 1) : 1;
 
-		$db = $this->context->database;
+		$date = new \DateTime($year.'-'.$month.'-01');
+		$numberHash = $this->newsletter->date_to_number($date);
 
-		$state = $this->getUser()->isLoggedIn() ? 1 : 1;
+		$newsletter = $this->template->newsletter = $this->database->table('newsletter')
+			->where('state', $state)
+			->where('number', $numberHash)
+			->limit(1)
+			->fetch();
 
-		$newsletter = $this->template->newsletter = $db->table('newsletter')->where('state', $state)->where('number', \spse\newsletter\model\Newsletter::date_to_number(new \DateTime($year."-".$month."-01")))->limit(1)->fetch();
-
-		if (!$newsletter) {
-			throw new \Nette\Application\BadRequestException('Newsletter does not exist or denied permission.');
+		if ($newsletter === FALSE) {
+			throw new \Nette\Application\BadRequestException('Newsletter does not exist or permission denied.');
 		}
 
-		$articles = $db->table('newsletter_article')->select("*")->where('newsletter_id', $newsletter->id)->order('pos')->fetchPairs("id");
+		$articles = $this->database->table('newsletter_article')
+			->where('newsletter_id', $newsletter->id)
+			->order('pos')
+			->fetchPairs('id');
+
 		$fibers = array();
 
 		foreach( $articles as $article ) {
@@ -54,16 +77,6 @@ class DefaultPresenter extends \BasePresenter
 
 		$this->template->articles = $articles;
 		$this->template->fibers = $fibers;
-
-		/*
-		$finder = \Nette\Utils\Finder::findFiles("*")->from(WWW_DIR.'/uploads');
-		foreach($finder as $file) {
-			$img = Nette\Image::fromFile($file->getRealPath());
-			echo (string) Nette\Utils\Html ::el("img", array("src"=> '/uploads/sponsors/'.$file->getFilename(), "width" => $img->getWidth(), "height" => $img->getHeight() )); // $file->getFilename()
-			echo "\n";
-		}
-		*/
-
 	}
 
 }

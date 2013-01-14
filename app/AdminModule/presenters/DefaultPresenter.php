@@ -2,33 +2,43 @@
 
 namespace AdminModule;
 
+use \Nette\Forms\Form;
+
 /**
  * Admin area, just for authentificated
  *
  * @author Jan Mochnak <janmochnak@gmail.com>
- * @package newsletter
+ * @copyright 2013
  */
-
-use \Nette\Forms\Form;
-
 class DefaultPresenter extends \BasePresenter
 {
+
+	/**
+	 * @var \Nette\Database\Connection
+	 */
+	private $database;
+
+	public function injectDatabase(\Nette\Database\Connection $database)
+	{
+		$this->database = $database;
+	}
 
 	public function startup()
 	{
 		parent::startup();
-		if ( ! $this->user->isLoggedIn() ) {
+		if ( $this->user->isLoggedIn() === FALSE ) {
 			$this->redirect('Sign:in');
 		}
 	}
 
 	public function actionDefault()
 	{
-		$db = $this->context->database;
+		$newsletters = $this->template->newsletters = $this->database->table('newsletter')
+			->select('id, number')
+			->order('published DESC, id DESC, number DESC');
 
-		$newsletters = $this->template->newsletters = $db->table('newsletter')->select("id,number")->order('published DESC, id DESC, number DESC');
-
-		$this->template->email_count = $db->table('newsletter_email')->count("email");
+		$this->template->email_count = $this->database->table('newsletter_email')
+			->count('email');
 	}
 
 }

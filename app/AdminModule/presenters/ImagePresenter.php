@@ -10,7 +10,7 @@ use Nette\Image;
  * @remove
  *
  * @author Jan Mochnak <janmochnak@gmail.com>
- * @package newsletter
+ * @copyright 2013
  */
 
 class ImagePresenter extends \BasePresenter

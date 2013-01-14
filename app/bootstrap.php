@@ -31,6 +31,7 @@ $configurator->addConfig(__DIR__ . '/config/config.neon');
 $container = $configurator->createContainer();
 
 $container->router[] = $frontRouter = new RouteList('Front');
+$frontRouter[] = new Route('', 'Default:default');
 $frontRouter[] = new Route('<year>-<month>', 'Default:show');
 
 $container->router[] = $adminRouter = new RouteList('Admin');
