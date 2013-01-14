@@ -176,6 +176,12 @@ article h2 {
 	padding: 10px 0 2px 5px;
 }
 
-img {
+a > img {
 	cursor: pointer !important;
+}
+
+ol {
+	list-style-type: decimal;
+	list-style-position: inside;
+	padding-left: 15px;
 }
