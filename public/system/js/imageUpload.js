@@ -192,6 +192,7 @@ ImageHandler.prototype.send = function () {
 	function progressHandlingFunction(e){
 	if(e.lengthComputable){
 		$('progress').attr({value:e.loaded, max:e.total});
+		$('#progress-label').text(e.loaded + "/" + e.total + " " + (e.loaded*100)/e.total + "%");
 	}
 }
 };
