@@ -59,8 +59,8 @@ class GalleryPresenter extends \BasePresenter
 				$title = substr($title, 0, $offset);
 			}
 			$filelist[] = array(
-				'thumb' => $basePath.'/system/'.$this->path.'/'.$file->getFilename(),
-				'image' => $basePath.'/system/'.$this->path.'/'.substr($file->getFilename(), 2),
+				'thumb' => $basePath.'system/'.$this->path.'/'.$file->getFilename(),
+				'image' => $basePath.'system/'.$this->path.'/'.substr($file->getFilename(), 2),
 				'title' => $title,
 				'folder' => 'default'
 			);
