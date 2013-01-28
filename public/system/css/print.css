@@ -1,0 +1,67 @@
+/* Jan Mochnak, 2013 */
+
+
+body > header {
+	display: block;
+	height: 300px;
+	/*background-image: url('../images/newsletter.gif');*/
+}
+
+body > footer {
+	color: black;
+	font-size: 1.137em;
+	display: block;
+	padding: 0;
+	background: url('../images/footer.gif') repeat-x;
+	margin-top: 20px;
+	text-align: center;
+	line-height: 40px;
+}
+
+body > footer a {
+	color: black;
+}
+
+.clear {
+	clear: both;
+}
+
+/** Header */
+header > h3 {
+	display: inline-block;
+	position: relative;
+	top: 230px;
+	left: 0;
+	width: 170px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 2.4em;
+	font-weight: 700;
+	letter-spacing: 0.035em;
+}
+
+article h1 {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+article h2 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+article p {
+	text-align: justify;
+}
+
+ul {
+	list-style: disc inside;
+}
+
+article ul li {
+	margin: 0 0 0 20px;
+}
+
+article i {
+	font-style: italic;
+}
