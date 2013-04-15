@@ -24,7 +24,7 @@
       <option name="program" value="/usr/local/bin/lessc" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
-      <option name="workingDir" value="$PROJECT_DIR$/public/system/css/admin" />
+      <option name="workingDir" value="$PROJECT_DIR$/resources/less" />
       <envs />
     </TaskOptions>
   </component>

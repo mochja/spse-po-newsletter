@@ -1,73 +1,63 @@
 <!DOCTYPE html>
-<html>
-<header>
-	<meta charset="utf-8">
-
-	<title>Newsletter - Administrácia</title>
-
-	<meta name="viewport" content="width=device-width">
-
-	<link rel="stylesheet" href="{$basePath}/system/css/admin/reset.css">
-	<link rel="stylesheet" href="{$basePath}/system/css/admin/text.css">
-	<link rel="stylesheet" href="{$basePath}/system/css/admin/960.css">
-	<link rel="stylesheet" href="{$basePath}/system/css/admin/style.css">
-	<link rel="stylesheet" href="{$basePath}/system/css/admin/entypo/stylesheet.css">
-	<link rel="stylesheet" href="{$basePath}/system/dist/redactor/css/redactor.css" >
-
-	<script type="text/javascript" src="{$basePath}/system/js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="{$basePath}/system/js/netteForms.js"></script>
-	<script type="text/javascript" src="{$basePath}/system/dist/redactor/redactor.js"></script>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <title>{ifset $title}{$title} - {/ifset}Administrácia</title>
+    <link rel="stylesheet" href="{$basePath}/system/css/reset.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{$basePath}/system/css/admin/admin.css">
+    <link rel="stylesheet" href="{$basePath}/system/css/admin/entypo/stylesheet.css">
+	<link rel="stylesheet" href="{$basePath}/system/css/jquery.modal.css">
+	<script src="{$basePath}/system/js/jquery-1.7.2.min.js"></script>
+	<script src="{$basePath}/system/js/jquery.modal.min.js"></script>
 
 	<style>
-		.iconable { font-family: EntypoRegular; font-size: 32px; text-decoration: none; color: black; }
-		.icon { line-height: 26px; }
-	</style>
+        .iconable { font-family: EntypoRegular; font-size: 32px; text-decoration: none; color: black; }
+        .icon { line-height: 26px; }
+    </style>
 
-	<script>
-		$(function () {
-			var elem = $('a[data-question]');
-			elem.click(function (e) {
-				var $this = $(this);
-				if (!confirm($this.data('question'))) {
-					e.preventDefault();
-				}
-			});
-		});
-	</script>
-
-</header>
+    <script>
+        $(function () {
+            var elem = $('a[data-question]');
+            elem.click(function (e) {
+                var $this = $(this);
+                if (!confirm($this.data('question'))) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
 <body>
 
-<div id="container" class="container_12">
-
-<header class="grid_12">
-	<h1>Newsletter - Administrácia</h1>
+<header>
+    <h1>Administrácia</h1>
+    <small><a href="http://spse-po.sk/newsletter">http://spse-po.sk/newsletter</a></small>
+    <nav n:if="$user->isLoggedIn()"><ul>
+        <li><a n:href="Default:default">Home</a></li>
+        <li><a n:href="Newsletter:add">Nový newsletter</a></li>
+        <li><a n:href="Gallery:">Galeria</a></li>
+        <li><a n:href="sponsors">Sponzori</a></li>
+        <li><a n:href="email">Odoslať newsletter</a></li>
+        <li><a n:href=":Front:Default:default">web</a></li>
+    </ul></nav>
 </header>
 
-<div class="clear"></div>
+<div class="clearfix"></div>
 
-<section id="menu" class="grid_3" n:if="$user->isLoggedIn()">
+<section id="content">
 
-<ul>
-	<li><a n:href="Default:default">Home</a></li>
-	<li><a n:href="Newsletter:add">Nový newsletter</a></li>
-	<li><a n:href="Gallery:">Galeria</a></li>
-	<li><a n:href="sponsors">Sponzori</a></li>
-	<li><a n:href="email">Odoslať newsletter</a></li>
-	<li><a n:href=":Front:Default:default">web</a></li>
-</ul>
+    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-<div class="iconable"></div>
+	<h1 n:ifset="$title">{$title}</h1>
+	{include #content}
 
 </section>
 
-<section id="main" class="grid_9">
-<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-{include #content}
-</section>
-
-</div>
+<footer>
+    <p>&copy; Ján Mochňak 2012-2013, running on Nette Framework 2.0.8 <code>2345j2k3h4j124h1k23</code> </p>
+</footer>
 
 </body>
 </html>

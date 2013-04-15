@@ -1,32 +1,5 @@
+{var $title = 'Upraviť obsah'}
+
 {block content}
 
-<h1>Upraviť obsah</h1>
-
-{form newsletterContentForm}
-
-{foreach $form->getErrors() as $e}
-{$e}
-{/foreach}
-
-Titulok: {input title}
-<br><br>
-Typ: {input type}
-<br></br>
-{input text}
-
-<br>{input submit}
-
-{/form}
-<br><br><br>
-<script>
-$(function() {
-	var area = $("#frmnewsletterContentForm-text");
-	area.redactor({
-		css: 'style.css',
-		autoresize: true,
-		fixed: true,
-		imageUpload: {link Image:upload},
-		imageGetJson: {link Gallery:pictures}
-	});
-});
-</script>
+{include '@form.latte'}

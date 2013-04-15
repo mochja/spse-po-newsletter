@@ -68,6 +68,7 @@ class DefaultPresenter extends \BasePresenter
 		}
 
 		$articles = $this->database->table('newsletter_article')
+			->select('id, type, title, text, html, author')
 			->where('newsletter_id', $newsletter->id)
 			->order('pos')
 			->fetchPairs('id');

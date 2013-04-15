@@ -35,7 +35,7 @@ class DefaultPresenter extends \BasePresenter
 	{
 		$newsletters = $this->template->newsletters = $this->database->table('newsletter')
 			->select('id, number')
-			->order('published DESC, id DESC, number DESC');
+			->order('created DESC, published DESC, id DESC, number DESC');
 
 		$this->template->emailCount = $this->database->table('newsletter_email')
 			->count('email');

@@ -4,6 +4,8 @@ namespace AdminModule;
 
 use \Nette\Forms\Form;
 use \spse\newsletter\model\Newsletter;
+use \Michelf\MarkdownExtra;
+use \Custom\Finder;
 
 /**
  * Admin area, just for authentificated
@@ -22,6 +24,9 @@ class NewsletterPresenter extends \BasePresenter
 	 * @var \Nette\Database\Connection
 	 */
 	private $database;
+
+	private $path = '/uploads/photos';
+
 
 
 	public function injectNewsletter(Newsletter $newsletter)
@@ -94,6 +99,7 @@ class NewsletterPresenter extends \BasePresenter
 		sscanf($values['number'], '%d/%d', $month, $year);
 		$year = $year > 1999 ? $year - 2000 : $year;
 		$values['number'] = (int)($month.$year);
+		$values['published'] = null;
 
 		if ($this->getAction() == 'add') {
 			$values['state'] = 0;
@@ -129,8 +135,9 @@ class NewsletterPresenter extends \BasePresenter
 	{
 		$form = new \Nette\Application\UI\Form;
 		$form->addText('title', 'Titulok', 60);
+		$form->addText('author', 'Autor', 40);
 		$form->addRadioList('type', 'Typ', array('článok', 'flash'))->getSeparatorPrototype()->setName(NULL);
-		$form->addTextarea('text', 'Obsah');
+		$form->addTextarea('text', 'Obsah', 120, 27);
 		$form->addSubmit('submit', 'Uložiť');
 
 		$form->onSuccess[] = callback($this, 'onNewsletterContentFormSuccess');
@@ -140,6 +147,9 @@ class NewsletterPresenter extends \BasePresenter
 	public function onNewsletterContentFormSuccess($form)
 	{
 		$values = $form->values;
+
+		$values['html'] = MarkdownExtra::defaultTransform($values->text);
+
 		if ($this->getAction() == 'newContent') {
 			$values['newsletter_id'] = $this->getParameter('id');
 			try {
@@ -157,7 +167,7 @@ class NewsletterPresenter extends \BasePresenter
 			unset($values['newsletter_id']);
 			try {
 				if ($this->newsletter->editArticle($id, $values) !== FALSE) {
-					$this->redirect( 'edit', $bnl );
+					$this->redirect('edit', $bnl );
 				} else {
 					$form->addError('Nepodarilo sa upravit obsah...');
 				}
@@ -192,8 +202,35 @@ class NewsletterPresenter extends \BasePresenter
 		$form->setDefaults(array(
 			'title' => $article->title,
 			'type' => $article->type,
-			'text' => $article->text
+			'text' => $article->text,
+			'author' => $article->author
 		));
+	}
+
+
+	public function actionModal()
+	{
+		$basePath = preg_replace('#https?://[^/]+#A', '', rtrim($this->context->httpRequest->url->baseUrl, '/'));
+
+		$filelist = array();
+		foreach (Finder::findFiles('t_*.jpg')->in(WWW_DIR.$this->path)->orderByMTime() as $key => $file)
+		{
+			$title = $file->getFilename();
+			if ($offset = strrpos($title, '_')) {
+				$title = substr($title, $offset+1);
+			}
+			if ($offset = strrpos($title, '.')) {
+				$title = substr($title, 0, $offset);
+			}
+			$filelist[] = array(
+				'thumb' => $basePath.'/system'.$this->path.'/'.$file->getFilename(),
+				'image' => $basePath.'/system'.$this->path.'/'.substr($file->getFilename(), 2),
+				'title' => $title,
+				'folder' => 'default'
+			);
+		}
+
+		$this->template->filelist = $filelist;
 	}
 
 }

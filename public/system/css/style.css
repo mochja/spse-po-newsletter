@@ -10,7 +10,6 @@ body { width:950px; margin:30px auto; font-size: 12pt; font-family: "Times New R
 body > header {
 	display: block;
 	height: 300px;
-	/*background-image:url('../images/newsletter.gif'); */
 }
 
 body > footer {
@@ -28,7 +27,32 @@ body > footer a {
 	color: white;
 }
 
-.clear { clear: both; }
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clear:before,
+.clear:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clear:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clear {
+    *zoom: 1;
+}
 
 /** Header */
 header > h3 {
@@ -96,6 +120,11 @@ article > footer {
 article img {
 	margin: 5px;
 	display: block;
+    /*border: 1px solid black;*/
+}
+
+article strong {
+    font-weight: bold;
 }
 
 article#sponsors img {
@@ -105,13 +134,15 @@ article#sponsors img {
 article img.left {
 	float: left;
 	clear: left;
-	margin-left: 2px;
+	margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 article img.right {
 	float: right;
 	clear: right;
-	margin-right: 2px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 article img.center {

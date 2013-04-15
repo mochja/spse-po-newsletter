@@ -7,12 +7,12 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/composer.phar" />
-          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/libs/imagine-v0.3.0.phar" />
+          <root url="phar://$MODULE_DIR$/composer.phar" />
+          <root url="phar://$MODULE_DIR$/libs/imagine-v0.3.0.phar" />
         </CLASSES>
         <SOURCES>
-          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/composer.phar" />
-          <root url="phar:///Users/janmochnak/Sites/newsletter.dev/libs/imagine-v0.3.0.phar" />
+          <root url="phar://$MODULE_DIR$/composer.phar" />
+          <root url="phar://$MODULE_DIR$/libs/imagine-v0.3.0.phar" />
         </SOURCES>
       </library>
     </orderEntry>

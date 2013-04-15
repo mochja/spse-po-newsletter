@@ -61,7 +61,7 @@ end
 # https://github.com/mpasternacki/capistrano-documentation-support-files/raw/master/default-execution-path/Capistrano%20Execution%20Path.jpg
 # https://github.com/namics/capistrano-php
 
-set :copy_exclude, ["config/deploy*", "capfile", "tests", "README.md", ".idea", ".DS_Store"]
+set :copy_exclude, ["config/deploy*", "capfile", "tests", "README.md", ".idea", ".DS_Store", "resources"]
 
 namespace :deploy do
   task :create_release_dir, :except => {:no_release => true} do

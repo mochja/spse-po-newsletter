@@ -1,23 +1,41 @@
 
 {block date}{$newsletter->number|nformat}{/block}
 
+{block head}
+<style type="text/css">
+.author-sign {
+	text-align: right; font-style: italic
+}
+</style>
+{/block}
+
 {block content}
 
 <section id="main">
-	<article n:foreach="$articles as $article" id="{$article->title|webalize}">
+	<article n:foreach="$articles as $article" id="{$article->title|webalize}" class="clear">
 		<header>
 			<h1>{$article->title}</h1>
 		</header>
-		{!$article->text}
+		{if empty($article->html)}
+			{!$article->text}
+		{else}
+			{!$article->html}
+		{/if}
+		<p n:if="!empty($article->author)" class="author-sign">{$article->author}</p>
 	</article>
 </section>
 
 <aside>
 	<article n:foreach="$fibers as $fiber" id="{$fiber->title|webalize}">
 		<header>
-			<h1>{$fiber->title}</h1>
+			<h1 class="editable">{$fiber->title}</h1>
 		</header>
-		{!$fiber->text}
+		{if empty($fiber->html)}
+			{!$fiber->text}
+		{else}
+			{!$fiber->html}
+		{/if}
+		<p n:if="!empty($fiber->author)" class="author-sign">{$fiber->author}</p>
 	</article>
 
 	<article id="sponsors">
@@ -25,32 +43,34 @@
 			<h1>Sponzori</h1>
 		</header>
 
-		<img src="{$basePath}/system/uploads/sponsors/2j.png" width="120" height="55" />
-		<img src="{$basePath}/system/uploads/sponsors/abb.png" width="70" height="27" />
-		<img src="{$basePath}/system/uploads/sponsors/bl.png" width="70" height="51" />
-		<img src="{$basePath}/system/uploads/sponsors/cct.png" width="100" height="35" />
-		<img src="{$basePath}/system/uploads/sponsors/defend.png" width="150" height="41" />
-		<img src="{$basePath}/system/uploads/sponsors/eaton.png" width="150" height="70" />
-		<img src="{$basePath}/system/uploads/sponsors/elcom.png" width="120" height="84" />
-		<img src="{$basePath}/system/uploads/sponsors/faxcopy.png" width="120" height="36" />
-		<img src="{$basePath}/system/uploads/sponsors/hagard.png" width="150" height="26" />
-		<img src="{$basePath}/system/uploads/sponsors/lesko.png" width="150" height="27" />
-		<img src="{$basePath}/system/uploads/sponsors/manik.png" width="150" height="59" />
-		<img src="{$basePath}/system/uploads/sponsors/mavex.png" width="120" height="52" />
-		<img src="{$basePath}/system/uploads/sponsors/mcg.png" width="120" height="37" />
-		<img src="{$basePath}/system/uploads/sponsors/micronix.png" width="150" height="29" />
-		<img src="{$basePath}/system/uploads/sponsors/mtech.png" width="120" height="44" />
-		<img src="{$basePath}/system/uploads/sponsors/neko.png" width="90" height="65" />
-		<img src="{$basePath}/system/uploads/sponsors/panasonic.png" width="150" height="35" />
-		<img src="{$basePath}/system/uploads/sponsors/ploskon.png" width="120" height="49" />
-		<img src="{$basePath}/system/uploads/sponsors/poly-trade.png" width="170" height="40" />
-		<img src="{$basePath}/system/uploads/sponsors/schotter.png" width="150" height="39" />
-		<img src="{$basePath}/system/uploads/sponsors/sez.png" width="80" height="83" />
-		<img src="{$basePath}/system/uploads/sponsors/sors.png" width="120" height="56" />
-		<img src="{$basePath}/system/uploads/sponsors/sos.png" width="110" height="66" />
-		<img src="{$basePath}/system/uploads/sponsors/spell.png" width="90" height="68" />
-		<img src="{$basePath}/system/uploads/sponsors/towercom.png" width="150" height="71" />
-		<img src="{$basePath}/system/uploads/sponsors/tsystems.png" width="150" height="34" />
-		<img src="{$basePath}/system/uploads/sponsors/vse.png" width="70" height="43" />
+			<img src="http://spse-po.sk/sponsors/abb.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/asit.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/bl.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/cct.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/chemosvit.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/cisco.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/condornet.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/datalesko.png" width="180" height="112" alt="" />
+
+			<img src="http://spse-po.sk/sponsors/defend.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/eaton.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/elcom.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/komora.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/mavex.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/mironix.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/nadaciaspse.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/neko.png" width="180" height="112" alt="" />
+
+			<img src="http://spse-po.sk/sponsors/panasonic.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/ploskon.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/presto.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/siemens.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/sos.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/spinea.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/towercom.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/vallye.png" width="180" height="112" alt="" />
+			<img src="http://spse-po.sk/sponsors/vse.png" width="180" height="112" alt="" />
+
+			<img src="http://www.spse-po.sk/public/images/stories/loga/e.i.c..jpg" width="156" height="102" alt=""  style="margin: auto"/>
 	</article>
 </aside>

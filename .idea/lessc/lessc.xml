@@ -12,6 +12,9 @@
                   <CssDirectory>
                     <option name="path" value="$PROJECT_DIR$/resources/less/compiled" />
                   </CssDirectory>
+                  <CssDirectory>
+                    <option name="path" value="$PROJECT_DIR$/public/system/css/admin" />
+                  </CssDirectory>
                 </list>
               </option>
               <option name="excludePattern" value="compiled" />

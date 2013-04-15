@@ -1,0 +1,44 @@
+
+<div style="max-height: 600px; overflow: auto;">
+
+{foreach $filelist as $file}
+	<img src="{$file[thumb]}" alt="{$file[title]}" class="selectable-image" data-thumb="{$file[thumb]}" data-link="{$file[image]}" />
+{/foreach}
+
+</div>
+
+<style type="text/css">
+
+.selectable-image {
+	width: 130px;
+	margin: 0 2px 2px;
+	cursor: pointer;
+	border: 2px solid transparent;
+}
+
+.selectable-image:hover {
+	width: 130px;
+	margin: 0 2px 2px;
+	cursor: pointer;
+	border-color: gray;
+}
+
+</style>
+
+<script type="text/javascript">
+$(function () {
+var insertBtn = $('#image-insert'),
+	imgAlt = $('#image-alt'),
+	imgLink = $('#image-link-url'),
+	imgUrl = $('#image-url');
+
+	$('.selectable-image').click(function (e) {
+		e.preventDefault();
+		imgAlt.val( $(this).attr('alt') );
+		imgLink.val( $(this).data('link') );
+		imgUrl.val( $(this).data('thumb') );
+		$.modal.close();
+		$('#insert-image').modal();
+	});
+});
+</script>

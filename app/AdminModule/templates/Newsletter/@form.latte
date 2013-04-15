@@ -1,0 +1,113 @@
+{form newsletterContentForm}
+
+{foreach $form->getErrors() as $e}
+	<div style="color: red">{$e}</div>
+{/foreach}
+
+{input title, placeholder=>Titulok}
+<br><br>
+{input author, placeholder=>Autor}
+<br><br>
+Typ: {input type}
+<br><br>
+<a href="#insert-image" rel="modal:open">open</a> <a href="{link Newsletter:modal}" rel="modal:open">open</a><br><br>
+{input text, class=>myedit, placeholder=>MarkdownText}
+
+<br><br>{input submit}<br><br>
+
+{/form}
+
+<style type="text/css">
+.myedit {
+	font-size: 16px;
+}
+.modal {
+	width: 600px;
+	max-height: 600px;
+}
+#insert-image.modal {
+	width: 300px;
+}
+</style>
+
+
+<script type="text/javascript">
+
+jQuery.fn.extend({
+insertAtCaret: function(myValue){
+  return this.each(function(i) {
+    if (document.selection) {
+      //For browsers like Internet Explorer
+      this.focus();
+      sel = document.selection.createRange();
+      sel.text = myValue;
+      this.focus();
+    }
+    else if (this.selectionStart || this.selectionStart == '0') {
+      //For browsers like Firefox and Webkit based
+      var startPos = this.selectionStart;
+      var endPos = this.selectionEnd;
+      var scrollTop = this.scrollTop;
+      this.value = this.value.substring(0, startPos)+myValue+this.value.substring(endPos,this.value.length);
+      this.focus();
+      this.selectionStart = startPos + myValue.length;
+      this.selectionEnd = startPos + myValue.length;
+      this.scrollTop = scrollTop;
+    } else {
+      this.value += myValue;
+      this.focus();
+    }
+  })
+}
+});
+
+$(function() {
+
+	var insertBtn = $('#image-insert'),
+		imgAlt = $('#image-alt'),
+		imgClass = $('#image-class'),
+		imgLink = $('#image-link-url'),
+		imgUrl = $('#image-url');
+
+	var links = {};
+
+	var textarea = $('.myedit:first');
+
+	var form = $('#frm-newsletterContentForm');
+
+	form.submit(function (e){
+		for (link in links) {
+			textarea.val( textarea.val().replace('{'+link+'}', links[link]) );
+		}
+		return true;
+	});
+
+	insertBtn.click(function (e) {
+		e.preventDefault();
+		var link = '<a href="'+imgLink.val()+'" rel="lightbox"><img class="'+imgClass.val()+'" alt="'+imgAlt.val()+'" src="'+ imgUrl.val() +'" /></a>';
+		var id = 'image_'+(Object.keys(links).length+1);
+		links[id] = link;
+		$('.myedit').insertAtCaret('{'+id+'}');
+		$.modal.close();
+	});
+
+});
+
+</script>
+
+<div id="insert-image" style="display: none">
+
+	<input type="text" id="image-alt" /> <br>
+	<input type="text" id="image-url" /> <br>
+	<input type="text" id="image-link-url" /> <br>
+
+	<select id="image-class">
+		<option value="left">left</option>
+		<option value="right">right</option>
+		<option value="">none</option>
+	</select>
+
+	<br>
+
+	<button id="image-insert">Okay</button>
+</div>
