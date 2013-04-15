@@ -5,3 +5,4 @@ log/
 public/system/uploads/sponsors/*
 public/system/uploads/photos/*
 vendor/
+.idea/
