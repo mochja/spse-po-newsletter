@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LessManager">
+    <option name="lessProfiles">
+      <map>
+        <entry key="newsletter">
+          <value>
+            <LessProfile>
+              <option name="compressOutput" value="true" />
+              <option name="cssDirectories">
+                <list>
+                  <CssDirectory>
+                    <option name="path" value="$PROJECT_DIR$/resources/less/compiled" />
+                  </CssDirectory>
+                </list>
+              </option>
+              <option name="excludePattern" value="compiled" />
+              <option name="lessDirPath" value="$PROJECT_DIR$/resources/less" />
+              <option name="name" value="newsletter" />
+            </LessProfile>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
+
