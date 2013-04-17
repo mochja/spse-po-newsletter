@@ -78,6 +78,7 @@ class NewsletterPresenter extends \BasePresenter
 
 		$this->template->articles = $articles;
 		$this->template->fibers = $fibers;
+		$this->template->number = Newsletter::buildNumber($newsletter->number);
 	}
 
 	protected function createComponentNewsletterForm()
