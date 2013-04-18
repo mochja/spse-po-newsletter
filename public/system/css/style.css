@@ -244,3 +244,11 @@ ol {
 	list-style-position: inside;
 	padding-left: 15px;
 }
+
+aside > article img.left {
+    width: 170px;
+}
+
+aside > article img.right {
+    width: 170px;
+}
