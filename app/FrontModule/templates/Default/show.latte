@@ -12,7 +12,8 @@
 {block content}
 
 <section id="main">
-	<article n:foreach="$articles as $article" id="{$article->title|webalize}" class="clear">
+	{if isset($articles[top]) && is_array($articles[top])}
+	<article n:foreach="$articles[top] as $article" id="{$article->title|webalize}" class="clear">
 		<header>
 			<h1>{$article->title}</h1>
 		</header>
@@ -23,12 +24,30 @@
 		{/if}
 		<p n:if="!empty($article->author)" class="author-sign">{$article->author}</p>
 	</article>
+	{/if}
+	{if isset($articles[activity]) && is_array($articles[activity])}
+	<article id="aktivity-tried" class="clear">
+		<header>
+			<h1>Aktivity tried</h1>
+		</header>
+		{foreach $articles[activity] as $article}
+		<h2 id="{$article->title|webalize}">{$article->title}</h2>
+		{if empty($article->html)}
+			{!$article->text}
+		{else}
+			{!$article->html}
+		{/if}
+		<p n:if="!empty($article->author)" class="author-sign">{$article->author}</p>
+		{/foreach}
+	</article>
+	{/if}
 </section>
 
 <aside>
-	<article n:foreach="$fibers as $fiber" id="{$fiber->title|webalize}">
+	{if isset($articles[flash]) && is_array($articles[flash])}
+	<article n:foreach="$articles[flash] as $fiber" id="{$fiber->title|webalize}">
 		<header>
-			<h1 class="editable">{$fiber->title}</h1>
+			<h1>{$fiber->title}</h1>
 		</header>
 		{if empty($fiber->html)}
 			{!$fiber->text}
@@ -37,6 +56,7 @@
 		{/if}
 		<p n:if="!empty($fiber->author)" class="author-sign">{$fiber->author}</p>
 	</article>
+	{/if}
 
 	<article id="sponsors">
 		<header>

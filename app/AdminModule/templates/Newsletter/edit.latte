@@ -9,40 +9,45 @@
 
 <p><a n:href="newContent, $newsletter->id">Pridať obsah</a></p>
 
-<h3>Články <small><a n:href="newContent, $newsletter->id, article" class="iconable">&#10133;</a></small></h3>
 
-<p n:if="count($articles) == 0">Ešte ste nepridali žiadny článok, pridať ho môžete kliknutím <a n:href="newContent, $newsletter->id, article">sem</a>.</p>
+{foreach $articles as $type => $type_articles}
+	<h3>{$type} <small><a n:href="newContent, $newsletter->id, $type" class="iconable">&#10133;</a></small></h3>
 
-<table style="width: 100%;" class="a-list" n:if="count($articles) > 0">
-<tr style="background: red">
-	<td width="50"><!-- --></td>
-	<td width="250">Titulok</td>
-	<td>Text</td>
-</tr>
-{foreach $articles as $article}
-<tr>
-	<td><span class="icon"><a n:href="editContent, $article->id" class="iconable" style="font-size: 24px">&#9998;</a> <a n:href="delContent, $article->id" class="iconable" style="font-size: 24px" data-question="Naozaj chcete zmazať tento článok?">&#10060;</a></span></td>
-	<td>{$article->title|truncate:40}</td>
-	<td>{!$article->text|striptags|truncate:55}</td>
-</tr>
+	<p n:if="count($articles[$type]) == 0">Ešte ste nepridali žiadny článok, pridať ho môžete kliknutím <a n:href="newContent, $newsletter->id, $type">sem</a>.</p>
+
+	<table style="width: 100%;" class="a-list" n:if="count($articles[$type]) > 0 && is_array($articles[$type])">
+	<tr style="background: red">
+		<td width="50"><!-- --></td>
+		<td width="250">Titulok</td>
+		<td>Text</td>
+	</tr>
+	{foreach $type_articles as $article}
+	<tr>
+		<td><span class="icon"><a n:href="editContent, $article->id" class="iconable" style="font-size: 24px">&#9998;</a> <a n:href="delContent, $article->id" class="iconable" style="font-size: 24px" data-question="Naozaj chcete zmazať tento článok?">&#10060;</a></span></td>
+		<td>{$article->title|truncate:40}</td>
+		<td>{!$article->text|striptags|truncate:55}</td>
+	</tr>
+	{/foreach}
+	</table>
 {/foreach}
-</table>
 
-<h3>Flash <small><a n:href="newContent, $newsletter->id, flash" class="iconable">&#10133;</a></small></h3>
 
-<p n:if="count($fibers) == 0">Ešte ste nepridali žiadnu flashku, pridať ju môžete kliknutím <a n:href="newContent, $newsletter->id, flash">sem</a>.</p>
 
-<table style="width: 100%;" class="a-list" n:if="count($fibers) > 0">
-<tr style="background: red">
-	<td width="50"><!-- --></td>
-	<td width="250">Titulok</td>
-	<td>Text</td>
-</tr>
-{foreach $fibers as $article}
-<tr>
-	<td><span class="icon"><a n:href="editContent, $article->id" class="iconable" style="font-size: 24px">&#9998;</a> <a n:href="del_content, $article->id" class="iconable" style="font-size: 24px" data-question="Naozaj chcete zmazať túto flashku?">&#10060;</a></span></td>
-	<td>{$article->title|truncate:40}</td>
-	<td>{!$article->text|striptags|truncate:55}</td>
-</tr>
-{/foreach}
-</table>
+{*<h3>Flash <small><a n:href="newContent, $newsletter->id, flash" class="iconable">&#10133;</a></small></h3>*}
+
+{*<p n:if="count($fibers) == 0">Ešte ste nepridali žiadnu flashku, pridať ju môžete kliknutím <a n:href="newContent, $newsletter->id, flash">sem</a>.</p>*}
+
+{*<table style="width: 100%;" class="a-list" n:if="count($fibers) > 0">*}
+{*<tr style="background: red">*}
+	{*<td width="50"><!-- --></td>*}
+	{*<td width="250">Titulok</td>*}
+	{*<td>Text</td>*}
+{*</tr>*}
+{*{foreach $fibers as $article}*}
+{*<tr>*}
+	{*<td><span class="icon"><a n:href="editContent, $article->id" class="iconable" style="font-size: 24px">&#9998;</a> <a n:href="del_content, $article->id" class="iconable" style="font-size: 24px" data-question="Naozaj chcete zmazať túto flashku?">&#10060;</a></span></td>*}
+	{*<td>{$article->title|truncate:40}</td>*}
+	{*<td>{!$article->text|striptags|truncate:55}</td>*}
+{*</tr>*}
+{*{/foreach}*}
+{*</table>*}

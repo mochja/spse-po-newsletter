@@ -73,17 +73,18 @@ class DefaultPresenter extends \BasePresenter
 			->order('pos')
 			->fetchPairs('id');
 
-		$fibers = array();
+		$types = $this->newsletter->getArticleTypes();
+		$article_map = array_values($types);
+		$article_map = array_flip($article_map);
 
-		foreach( $articles as $article ) {
-			if ($article && $article->type == 1) { // a flash to another array
-				$fibers[$article->id] = clone $article;
-				unset($articles[$article->id]);
+		foreach ($articles as $article) {
+			if (!isset($article_map[$types[$article->type]]) || !is_array($article_map[$types[$article->type]])) {
+				$article_map[$types[$article->type]] = array();
 			}
+			$article_map[$types[$article->type]][$article->id] = $article;
 		}
 
-		$this->template->articles = $articles;
-		$this->template->fibers = $fibers;
+		$this->template->articles = $article_map;
 	}
 
 }

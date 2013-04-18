@@ -14,6 +14,8 @@ class Newsletter extends \Nette\Object
 
 	private $db;
 
+	private $articleTypes = array();
+
 	public function __construct(\Nette\Database\Connection $db)
 	{
 		$this->db = $db;
@@ -24,15 +26,32 @@ class Newsletter extends \Nette\Object
         if (empty($id)) {
             throw new \ErrorException('id wasnt set.');
         }
-		return $this->table->find($id)->fetch();
+		$newsletter = $this->table->find($id)->fetch();
+		if (!$newsletter) {
+			throw new \FatalErrorException('Newsletter with id = '.$id.' wasn\'t found.');
+		}
+		return $newsletter;
 	}
 
 	public function getArticles($id, $type=NULL)
 	{
-		$r = $this->db->table('newsletter_article')->where('id', $id)->order('pos DESC');
-		if ( $type!== NULL)
-			$r->where('type', $type);
-		return $r;
+		$result = $this->db->table('newsletter_article')->where('id', $id)->order('pos DESC');
+		if ( $type !== NULL )
+			$result->where('type', $type);
+		return $result;
+	}
+
+	public function getArticleTypes()
+	{
+		if (empty($this->articleTypes)) {
+			$this->articleTypes = $this->db->table('newsletter_article_types')->fetchPairs('id', 'title');
+		}
+		return $this->articleTypes;
+	}
+
+	public function getArticleType($type)
+	{
+		return array_search($type, $this->getArticleTypes());
 	}
 
 	public function update($id, $data)

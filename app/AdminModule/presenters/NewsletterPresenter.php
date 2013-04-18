@@ -63,21 +63,37 @@ class NewsletterPresenter extends \BasePresenter
 			'state' => $newsletter->state
 		));
 
-		$articles = $this->database->table('newsletter_article')->
-			where('newsletter_id', $newsletter->id)
-			->order('pos')
-			->fetchPairs('id');
-		$fibers = array();
+		$articles = $this->database->table('newsletter_article')
+			->where('newsletter_id', $newsletter->id)
+			->order('pos');
 
-		foreach( $articles as $article ) {
-			if ($article && $article->type == 1) { // a flash to another array
-				$fibers[$article->id] = clone $article;
-				unset($articles[$article->id]);
+		$types = $this->newsletter->getArticleTypes();
+		$article_map = array_values($types);
+		$article_map = array_flip($article_map);
+
+		foreach ($articles as $article) {
+			if (!isset($article_map[$types[$article->type]]) || !is_array($article_map[$types[$article->type]])) {
+				$article_map[$types[$article->type]] = array();
 			}
+			$article_map[$types[$article->type]][$article->id] = $article;
 		}
 
-		$this->template->articles = $articles;
-		$this->template->fibers = $fibers;
+//		unset($articles);
+
+//		dump($article_map); exit;
+
+
+//		$fibers = array();
+//
+//		foreach( $articles as $article ) {
+//			if ($article && $article->type == 1) { // a flash to another array
+//				$fibers[$article->id] = clone $article;
+//				unset($articles[$article->id]);
+//			}
+//		}
+
+		$this->template->articles = $article_map;
+//		$this->template->fibers = $fibers;
 		$this->template->number = Newsletter::buildNumber($newsletter->number);
 	}
 
@@ -128,7 +144,7 @@ class NewsletterPresenter extends \BasePresenter
 	{
 		$form = $this['newsletterContentForm'];
 		$form->setDefaults(array(
-			'type' => isset($type) && $type == 'flash' ? 1 : 0
+			'type' => isset($type) ? $this->newsletter->getArticleType($type) : 0
 		));
 	}
 
@@ -137,7 +153,7 @@ class NewsletterPresenter extends \BasePresenter
 		$form = new \Nette\Application\UI\Form;
 		$form->addText('title', 'Titulok', 60);
 		$form->addText('author', 'Autor', 40);
-		$form->addRadioList('type', 'Typ', array('článok', 'flash'))->getSeparatorPrototype()->setName(NULL);
+		$form->addRadioList('type', 'Typ', $this->newsletter->getArticleTypes())->getSeparatorPrototype()->setName(NULL);
 		$form->addTextarea('text', 'Obsah', 120, 27);
 		$form->addSubmit('submit', 'Uložiť');
 
