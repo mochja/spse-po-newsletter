@@ -78,22 +78,7 @@ class NewsletterPresenter extends \BasePresenter
 			$article_map[$types[$article->type]][$article->id] = $article;
 		}
 
-//		unset($articles);
-
-//		dump($article_map); exit;
-
-
-//		$fibers = array();
-//
-//		foreach( $articles as $article ) {
-//			if ($article && $article->type == 1) { // a flash to another array
-//				$fibers[$article->id] = clone $article;
-//				unset($articles[$article->id]);
-//			}
-//		}
-
 		$this->template->articles = $article_map;
-//		$this->template->fibers = $fibers;
 		$this->template->number = Newsletter::buildNumber($newsletter->number);
 	}
 

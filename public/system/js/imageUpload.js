@@ -189,13 +189,21 @@ ImageHandler.prototype.send = function () {
 		contentType: false,
 		processData: false
 	});
-	function progressHandlingFunction(e){
-	if(e.lengthComputable){
+	function progressHandlingFunction (e) {
+	if (e.lengthComputable) {
+        var progress = Math.round((e.loaded*100)/e.total);
+        if ( progress === 100 ) {
+            window.document.title = windowTitle;
+        } else {
+            window.document.title = Math.round((e.loaded*100)/e.total) + "% " + windowTitle;
+        }
 		$('progress').attr({value:e.loaded, max:e.total});
 		$('#progress-label').text(Math.round(e.loaded/1024) + "/" + Math.round(e.total/1024) + " " + Math.round((e.loaded*100)/e.total) + "%");
 	}
 }
 };
+
+var windowTitle = window.document.title;
 
 var imagehandler = new ImageHandler();
 
