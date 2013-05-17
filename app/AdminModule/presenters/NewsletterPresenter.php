@@ -228,7 +228,7 @@ class NewsletterPresenter extends \BasePresenter
 		$this->newsletter = $newsletter;
 	}
 
-	public function injectDatabase(Nette\Database\Connection $database)
+	public function injectDatabase(Connection $database)
 	{
 		$this->database = $database;
 	}
