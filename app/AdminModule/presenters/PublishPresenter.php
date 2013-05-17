@@ -30,7 +30,7 @@ class PublishPresenter extends \BasePresenter
 
 	public function actionGenerateEmailTemplate($id)
 	{
-		$newsletter = $this->newsletter->get($id);
+		$newsletter = $this->newsletter->get((int) $id);
 
 		$template = new \Nette\Templating\FileTemplate(__DIR__.'/../templates/email.latte');
 		$template->registerFilter(new \Nette\Latte\Engine);
@@ -39,11 +39,19 @@ class PublishPresenter extends \BasePresenter
 		$datetime = $this->newsletter->buildDatetime( $newsletter->number );
 		$number = $template->number = $datetime->format('Y'). '-' .$datetime->format('n');
 
-		$template->articles = $this->database->query('SELECT * FROM newsletter_article');
+		$template->articles = $this->database->query('SELECT * FROM newsletter_article WHERE newsletter_id = ? ORDER BY pos, id', (int) $id);
 
-		$template->classes = $this->database->table('newsletter_article')->where('type', 2)->select('title');
+		$template->classes = $this->database->table('newsletter_article')
+			->where('type', 2)
+			->where('newsletter_id', (int) $id)
+			->order('pos, id')
+			->select('title');
 
-		$template->tops = $this->database->table('newsletter_article')->where('type', 1)->select('title');
+		$template->tops = $this->database->table('newsletter_article')
+			->where('type', 2)
+			->where('newsletter_id', (int) $id)
+			->order('pos, id')
+			->select('title');
 
 		$this->template->emailContent = (string) $template;
 
