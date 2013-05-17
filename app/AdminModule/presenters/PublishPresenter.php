@@ -39,7 +39,10 @@ class PublishPresenter extends \BasePresenter
 		$datetime = $this->newsletter->buildDatetime( $newsletter->number );
 		$number = $template->number = $datetime->format('Y'). '-' .$datetime->format('n');
 
-		$template->articles = $this->database->query('SELECT * FROM newsletter_article WHERE newsletter_id = ? ORDER BY pos, id', (int) $id);
+		$template->articles = $this->database->table('newsletter_article')
+			->where('type', 0)
+			->where('newsletter_id', (int) $id)
+			->order('pos, id');
 
 		$template->classes = $this->database->table('newsletter_article')
 			->where('type', 2)
