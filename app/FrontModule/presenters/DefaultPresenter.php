@@ -21,16 +21,6 @@ class DefaultPresenter extends \BasePresenter
 	/** @var Newsletter */
 	private $newsletter;
 
-	public function injectDatabase(\Nette\Database\Connection $database)
-	{
-		$this->database = $database;
-	}
-
-	public function injectNewsletter(Newsletter $newsletter)
-	{
-		$this->newsletter = $newsletter;
-	}
-
 	public function actionDefault()
 	{
 		$state = $this->getUser()->isLoggedIn() ? array(0, 1) : 1;
@@ -85,6 +75,16 @@ class DefaultPresenter extends \BasePresenter
 		}
 
 		$this->template->articles = $article_map;
+	}
+
+	public function injectDatabase(\Nette\Database\Connection $database)
+	{
+		$this->database = $database;
+	}
+
+	public function injectNewsletter(Newsletter $newsletter)
+	{
+		$this->newsletter = $newsletter;
 	}
 
 }

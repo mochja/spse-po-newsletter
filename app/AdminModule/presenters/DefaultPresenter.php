@@ -18,11 +18,6 @@ class DefaultPresenter extends \BasePresenter
 	 */
 	private $database;
 
-	public function injectDatabase(\Nette\Database\Connection $database)
-	{
-		$this->database = $database;
-	}
-
 	public function startup()
 	{
 		parent::startup();
@@ -39,6 +34,11 @@ class DefaultPresenter extends \BasePresenter
 
 		$this->template->emailCount = $this->database->table('newsletter_email')
 			->count('email');
+	}
+
+	public function injectDatabase(\Nette\Database\Connection $database)
+	{
+		$this->database = $database;
 	}
 
 }

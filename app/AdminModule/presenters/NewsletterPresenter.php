@@ -6,6 +6,7 @@ use \Nette\Forms\Form;
 use \spse\newsletter\model\Newsletter;
 use \Michelf\MarkdownExtra;
 use \Custom\Finder;
+use \Nette\Database\Connection;
 
 /**
  * Admin area, just for authentificated
@@ -26,18 +27,6 @@ class NewsletterPresenter extends \BasePresenter
 	private $database;
 
 	private $path = '/uploads/photos';
-
-
-
-	public function injectNewsletter(Newsletter $newsletter)
-	{
-		$this->newsletter = $newsletter;
-	}
-
-	public function injectDatabase(\Nette\Database\Connection $database)
-	{
-		$this->database = $database;
-	}
 
 	public function actionDefault()
 	{
@@ -82,6 +71,69 @@ class NewsletterPresenter extends \BasePresenter
 		$this->template->number = Newsletter::buildNumber($newsletter->number);
 	}
 
+	public function actionNewContent($id, $type)
+	{
+		$form = $this['newsletterContentForm'];
+		$form->setDefaults(array(
+			'type' => isset($type) ? $this->newsletter->getArticleType($type) : 0
+		));
+	}
+
+	public function actionDelContent($id)
+	{
+		try {
+			$nl = $this->newsletter->getArticles($id)->fetch()->newsletter_id;
+			if (!$this->newsletter->delArticle($id)) {
+				$this->flashMessage('Nepodarilo sa odstranit obsah', 'error');
+			} else {
+				$this->flashMessage('Obsah odstaneny', 'info');
+			}
+			$this->redirect('edit', $nl);
+		} catch (\PDOException $e) {
+			$this->flashMessage('Nepodarilo sa odstranit obsah', 'error');
+			$this->flashMessage($e->getMessage(), 'warning');
+			$this->redirect('default:');
+		}
+	}
+
+	public function actionEditContent($id)
+	{
+		$article = $this->newsletter->getArticles($id)->fetch();
+		$form = $this['newsletterContentForm'];
+		$form->addHidden('newsletter_id', $article->newsletter_id);
+		$form->setDefaults(array(
+			'title' => $article->title,
+			'type' => $article->type,
+			'text' => $article->text,
+			'author' => $article->author
+		));
+	}
+
+	public function actionModal()
+	{
+		$basePath = preg_replace('#https?://[^/]+#A', '', rtrim($this->context->httpRequest->url->baseUrl, '/'));
+
+		$filelist = array();
+		foreach (Finder::findFiles('t_*.jpg')->in(WWW_DIR.$this->path)->orderByMTime() as $key => $file)
+		{
+			$title = $file->getFilename();
+			if ($offset = strrpos($title, '_')) {
+				$title = substr($title, $offset+1);
+			}
+			if ($offset = strrpos($title, '.')) {
+				$title = substr($title, 0, $offset);
+			}
+			$filelist[] = array(
+				'thumb' => $basePath.'/system'.$this->path.'/'.$file->getFilename(),
+				'image' => $basePath.'/system'.$this->path.'/'.substr($file->getFilename(), 2),
+				'title' => $title,
+				'folder' => 'default'
+			);
+		}
+
+		$this->template->filelist = $filelist;
+	}
+
 	protected function createComponentNewsletterForm()
 	{
 		$form = new \Nette\Application\UI\Form;
@@ -123,14 +175,6 @@ class NewsletterPresenter extends \BasePresenter
 				$form->addError($e->getMessage());
 			}
 		}
-	}
-
-	public function actionNewContent($id, $type)
-	{
-		$form = $this['newsletterContentForm'];
-		$form->setDefaults(array(
-			'type' => isset($type) ? $this->newsletter->getArticleType($type) : 0
-		));
 	}
 
 	protected function createComponentNewsletterContentForm()
@@ -179,60 +223,14 @@ class NewsletterPresenter extends \BasePresenter
 		}
 	}
 
-	public function actionDelContent($id)
+	public function injectNewsletter(Newsletter $newsletter)
 	{
-		try {
-			$nl = $this->newsletter->getArticles($id)->fetch()->newsletter_id;
-			if (!$this->newsletter->delArticle($id)) {
-				$this->flashMessage('Nepodarilo sa odstranit obsah', 'error');
-			} else {
-				$this->flashMessage('Obsah odstaneny', 'info');
-			}
-			$this->redirect('edit', $nl);
-		} catch (\PDOException $e) {
-			$this->flashMessage('Nepodarilo sa odstranit obsah', 'error');
-			$this->flashMessage($e->getMessage(), 'warning');
-			$this->redirect('default:');
-		}
+		$this->newsletter = $newsletter;
 	}
 
-	public function actionEditContent($id)
+	public function injectDatabase(Nette\Database\Connection $database)
 	{
-		$article = $this->newsletter->getArticles($id)->fetch();
-		$form = $this['newsletterContentForm'];
-		$form->addHidden('newsletter_id', $article->newsletter_id);
-		$form->setDefaults(array(
-			'title' => $article->title,
-			'type' => $article->type,
-			'text' => $article->text,
-			'author' => $article->author
-		));
-	}
-
-
-	public function actionModal()
-	{
-		$basePath = preg_replace('#https?://[^/]+#A', '', rtrim($this->context->httpRequest->url->baseUrl, '/'));
-
-		$filelist = array();
-		foreach (Finder::findFiles('t_*.jpg')->in(WWW_DIR.$this->path)->orderByMTime() as $key => $file)
-		{
-			$title = $file->getFilename();
-			if ($offset = strrpos($title, '_')) {
-				$title = substr($title, $offset+1);
-			}
-			if ($offset = strrpos($title, '.')) {
-				$title = substr($title, 0, $offset);
-			}
-			$filelist[] = array(
-				'thumb' => $basePath.'/system'.$this->path.'/'.$file->getFilename(),
-				'image' => $basePath.'/system'.$this->path.'/'.substr($file->getFilename(), 2),
-				'title' => $title,
-				'folder' => 'default'
-			);
-		}
-
-		$this->template->filelist = $filelist;
+		$this->database = $database;
 	}
 
 }

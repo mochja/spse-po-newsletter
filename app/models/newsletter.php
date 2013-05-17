@@ -3,8 +3,6 @@
 namespace spse\newsletter\model;
 
 /**
- *
- *
  * @author Jan Mochnak <janmochnak@gmail.com>
  * @package newsletter
  */

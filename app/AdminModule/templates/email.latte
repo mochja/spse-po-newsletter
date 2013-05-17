@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style> body { background-color: white; } </style>
+</head>
+<body>
+<img src="http://www.spse-po.sk/newsletter/resources/mailheader_{$number}.png">
+
+<br><a href="http://www.spse-po.sk/newsletter/{$number}">http://www.spse-po.sk/newsletter/{$number}</a><br>
+
+<table width="950px">
+
+<tr n:foreach="$articles as $article"><td>
+<h3 style="margin:20px 0 0 0;color:#445c93;">{$article->title}</h3>
+{$article->html|striptags|truncate:rand(350, 450)}
+<a href="http://www.spse-po.sk/newsletter/{$number}#{$article->title|webalize}">viac...</a>
+</td></tr>
+
+<tr><td>
+<h3 style="margin:20px 0 0 0;color:#445c93;">Aktivity tried</h3>
+<ul>
+	<li n:foreach="$classes as $class">{$class->title}</li>
+</ul>
+<a href="http://www.spse-po.sk/newsletter/{$number}#aktivity-tried">viac...</a>
+</td></tr>
+
+<tr><td>
+<h3 style="margin:20px 0 0 0;color:#445c93;">TOP UDALOSTI MESIACA</h3>
+<ul style="margin:0;">
+	<li n:foreach="$tops as $top">{$top->title}</li>
+</ul>
+<a href="http://www.spse-po.sk/newsletter/{$number}">viac...</a>
+
+</td></tr>
+
+
+<tr><td>
+<h3 style="margin:20px 0 0 0;color:#445c93;">Ak si neželáte odoberať tento newsletter oznámte to na impulz@spse-po.sk</h3>
+</td></tr>
+
+</table>
+</body>
+
+</html>
