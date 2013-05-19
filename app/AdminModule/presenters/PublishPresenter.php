@@ -51,7 +51,7 @@ class PublishPresenter extends \BasePresenter
 			->select('title');
 
 		$template->tops = $this->database->table('newsletter_article')
-			->where('type', 2)
+			->where('type', 1)
 			->where('newsletter_id', (int) $id)
 			->order('pos, id')
 			->select('title');
