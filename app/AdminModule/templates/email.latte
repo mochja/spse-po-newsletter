@@ -12,7 +12,7 @@
 
 <tr n:foreach="$articles as $article"><td>
 <h3 style="margin:20px 0 0 0;color:#445c93;">{$article->title}</h3>
-{$article->html|striptags|truncate:rand(350, 450)}
+{$article->html|striptags|truncate:rand(150, 250)}
 <a href="http://www.spse-po.sk/newsletter/{$number}#{$article->title|webalize}">viac...</a>
 </td></tr>
 
