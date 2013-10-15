@@ -4,6 +4,7 @@ namespace AdminModule;
 
 use \spse\newsletter\model\Newsletter;
 use \Nette\Database\Connection;
+use Nette\Application\UI\Form;
 
 /**
  *
@@ -25,39 +26,43 @@ class PublishPresenter extends \BasePresenter
 
 	public function actionDefault()
 	{
+	}
 
+	public function actionNewsletter($id)
+	{
+		$template = $this->newsletter->generateTemplate($id);
+		$this->template->emailContent = (string) $template;
 	}
 
 	public function actionGenerateEmailTemplate($id)
 	{
-		$newsletter = $this->newsletter->get((int) $id);
-
-		$template = new \Nette\Templating\FileTemplate(__DIR__.'/../templates/email.latte');
-		$template->registerFilter(new \Nette\Latte\Engine);
-		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
-
-		$datetime = $this->newsletter->buildDatetime( $newsletter->number );
-		$number = $template->number = $datetime->format('Y'). '-' .$datetime->format('n');
-
-		$template->articles = $this->database->table('newsletter_article')
-			->where('type', 0)
-			->where('newsletter_id', (int) $id)
-			->order('pos, id');
-
-		$template->classes = $this->database->table('newsletter_article')
-			->where('type', 2)
-			->where('newsletter_id', (int) $id)
-			->order('pos, id')
-			->select('title');
-
-		$template->tops = $this->database->table('newsletter_article')
-			->where('type', 1)
-			->where('newsletter_id', (int) $id)
-			->order('pos, id')
-			->select('title');
-
+		$template = $this->newsletter->generateTemplate($id);
 		$this->template->emailContent = (string) $template;
+	}
 
+	protected function createComponentPublishForm()
+	{
+		$form = new Form;
+
+		$numbers = array();
+
+		foreach ($this->newsletter->table as $row) {
+			$datetime = $this->newsletter->buildDatetime( $row->number );
+			$numbers[$row->id] = $datetime->format('Y'). '-' .$datetime->format('n');
+		}
+
+		$form->addSelect('newsletter_id', 'Publikácia newslettera: ', $numbers);
+		$form->addSubmit('submit', 'Publikovať');
+
+		$form->onSuccess[] = $this->onPublishFormSuccess;
+
+		return $form;
+	}
+
+	public function onPublishFormSuccess(Form $form)
+	{
+		$values = $form->getValues();
+		$this->redirect('newsletter', $values['newsletter_id']);
 	}
 
 	public function injectNewsletter(Newsletter $newsletter)

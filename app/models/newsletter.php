@@ -77,6 +77,36 @@ class Newsletter extends \Nette\Object
 		return $this->db->table('newsletter_article')->find($id)->update($values);
 	}
 
+	public function generateTemplate($id)
+	{
+		$newsletter = $this->get((int) $id);
+
+		$template = new \Nette\Templating\FileTemplate(__DIR__.'/../AdminModule/templates/email.latte');
+		$template->registerFilter(new \Nette\Latte\Engine);
+		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
+
+		$datetime = self::buildDatetime( $newsletter->number );
+		$number = $template->number = $datetime->format('Y'). '-' .$datetime->format('n');
+
+		$template->articles = $this->db->table('newsletter_article')
+			->where('type', 0)
+			->where('newsletter_id', (int) $id)
+			->order('pos, id');
+
+		$template->classes = $this->db->table('newsletter_article')
+			->where('type', 2)
+			->where('newsletter_id', (int) $id)
+			->order('pos, id')
+			->select('title');
+
+		$template->tops = $this->db->table('newsletter_article')
+			->where('type', 1)
+			->where('newsletter_id', (int) $id)
+			->order('pos, id')
+			->select('title');
+
+		return (string) $template;
+	}
 
 	public function getTable()
 	{
