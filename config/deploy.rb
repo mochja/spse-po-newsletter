@@ -3,7 +3,7 @@
 ## basic setup stuff ##
 
 # http://help.github.com/deploy-with-capistrano/
-set :application, "spse newsletter"
+set :application, "spse-newsletter"
 set :repository, "git@github.com:mochja/newsletter.git"
 set :scm, "git"
 default_run_options[:pty] = true
