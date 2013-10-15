@@ -33,6 +33,18 @@ class NewsletterPresenter extends \BasePresenter
 
 	}
 
+	public function handleUpdatePosition()
+	{
+		$data = $_POST['data'];
+		foreach( $data as $pos => $item ) {
+			$num = explode('-', $item, 4);
+			// TODO: $num[2] is article type, we want add feature so you can mix your items
+			$this->newsletter->editArticle($num[3], array(
+				'pos' => $pos
+			));
+		}
+	}
+
 	public function actionAdd()
 	{
 		$form = $this['newsletterForm'];
@@ -136,7 +148,7 @@ class NewsletterPresenter extends \BasePresenter
 
 	protected function createComponentNewsletterForm()
 	{
-		$form = new \Nette\Application\UI\Form;
+		$form = new \Form;
 		$form->addText('number', 'Vydanie', 10, Newsletter::dateToNumber(new \DateTime))
 			->addRule(Form::MIN_LENGTH, 'Vydanie musí obsahovať aspoň %d znaky.', 4)
 			->addRule(Form::PATTERN, 'Nesprávny formát vydania, zadávajte vo formáte mesiac/rok. napr.: 5/13, 5/2013', '([0-9]{1,2}/[0-9]{2,4})');
@@ -179,7 +191,7 @@ class NewsletterPresenter extends \BasePresenter
 
 	protected function createComponentNewsletterContentForm()
 	{
-		$form = new \Nette\Application\UI\Form;
+		$form = new \Form;
 		$form->addText('title', 'Titulok', 60);
 		$form->addText('author', 'Autor', 40);
 		$form->addRadioList('type', 'Typ', $this->newsletter->getArticleTypes())->getSeparatorPrototype()->setName(NULL);

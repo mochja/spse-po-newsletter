@@ -10,8 +10,8 @@
 <br><br>
 Typ: {input type}
 <br><br>
-<a href="#insert-image" rel="modal:open">open</a> <a href="{link Newsletter:modal}" rel="modal:open">open</a><br><br>
-{input text, class=>myedit, placeholder=>MarkdownText}
+<a href="#insert-image" rel="modal:open">Pridať obrázok</a> <a href="{link Newsletter:modal}" rel="modal:open">Zobraziť galériu</a><br><br>
+{input text, class=>'myedit tinymce', placeholder=>MarkdownText}
 
 <br><br>{input submit}<br><br>
 
@@ -96,10 +96,10 @@ $(function() {
 </script>
 
 <div id="insert-image" style="display: none">
-
-	<input type="text" id="image-alt" /> <br>
-	<input type="text" id="image-url" /> <br>
-	<input type="text" id="image-link-url" /> <br>
+<form>
+	<input type="text" id="image-alt" placeholder="alt" /> <br>
+	<input type="text" id="image-url" placeholder="url" /> <br>
+	<input type="text" id="image-link-url" placeholder="link" /> <br>
 
 	<select id="image-class">
 		<option value="left">left</option>
@@ -109,5 +109,6 @@ $(function() {
 
 	<br>
 
-	<button id="image-insert">Okay</button>
+	<button id="image-insert">Pridať</button>
+</form>
 </div>

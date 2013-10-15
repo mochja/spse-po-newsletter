@@ -21,18 +21,19 @@ class SignPresenter extends \BasePresenter
 	 */
 	protected function createComponentSignInForm()
 	{
-		$form = new UI\Form;
-		$form->addText('username', 'Username:')
-			->setRequired('Please provide a username.');
+		$form = new \Form;
+		$form->addText('username', 'Prihlasovacie meno:')
+			->setRequired('Vyplňte prosím prihlasovacie meno.');
 
-		$form->addPassword('password', 'Password:')
-			->setRequired('Please provide a password.');
+		$form->addPassword('password', 'Heslo:')
+			->setRequired('Zadajte vaše heslo k účtu.');
 
-		$form->addCheckbox('remember', 'Remember me on this computer');
+		$form->addCheckbox('remember', 'Zapamataj si ma na tomto pc');
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', 'Prihlásiť');
 
 		$form->onSuccess[] = callback($this, 'signInFormSubmitted');
+		
 		return $form;
 	}
 

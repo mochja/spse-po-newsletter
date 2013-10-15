@@ -5,10 +5,11 @@
     <title>{ifset $title}{$title} - {/ifset}Administrácia</title>
     <link rel="stylesheet" href="{$basePath}/system/css/reset.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{$basePath}/system/css/admin/admin.css">
+    <link rel="stylesheet" href="{$basePath}/system/css/admin/style.css">
     <link rel="stylesheet" href="{$basePath}/system/css/admin/entypo/stylesheet.css">
 	<link rel="stylesheet" href="{$basePath}/system/css/jquery.modal.css">
 	<script src="{$basePath}/system/js/jquery-1.7.2.min.js"></script>
+    <script src="{$basePath}/system/js/jquery-ui-1.8.20.custom.min.js"></script>
 	<script src="{$basePath}/system/js/jquery.modal.min.js"></script>
 
 	<style>
@@ -30,34 +31,47 @@
 </head>
 <body>
 
-<header>
-    <h1>Administrácia</h1>
-    <small><a href="http://spse-po.sk/newsletter">http://spse-po.sk/newsletter</a></small>
-    <nav n:if="$user->isLoggedIn()"><ul>
-        <li><a n:href="Default:default">Home</a></li>
-        <li><a n:href="Newsletter:add">Nový newsletter</a></li>
-        <li><a n:href="Gallery:">Galeria</a></li>
-        <li><a n:href="sponsors">Sponzori</a></li>
-        <li><a n:href="email">Odoslať newsletter</a></li>
-        <li><a n:href=":Front:Default:default">web</a></li>
-    </ul></nav>
-</header>
+<div class="container">
+    <div id="header">
+        <div class="logo">
+            <img src="{$basePath}/system/images/admin_logo.png" width="174" height="50" alt="impulz logo">
+        </div>
+        <nav>
+            <ul>
+            {if $user->isLoggedIn()}
+                <li><a n:href="Default:default">Home</a></li>
+                <li><a n:href="Newsletter:add">Nový newsletter</a></li>
+                <li><a n:href="Gallery:">Galeria</a></li>
+                <li><a n:href="sponsors">Sponzori</a></li>
+                <li><a n:href="email">Odoslať newsletter</a></li>
+                <li><a n:href=":Front:Default:default">web</a></li>
+            {else}
+                <li class="active"><a n:href="Sign:in">Prihlásiť</a></li>
+            {/}
+            </ul>
+            <div class="right">Welcome <strong>Jan Mochnak</strong></div>
+        </nav>
+    </div>
+    <div id="main-container">
+        <header id="main-header">
+            <h1 n:ifset="$title">{$title}</h1>
+        </header>
 
-<div class="clearfix"></div>
+        <section id="main">
+            <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+            {include #content}
+        </section>
+    </div>
+    <div class="push"></div>
+</div>
 
-<section id="content">
+<div id="footer">
+    <p class="right">&copy;2013, Jan Mochnak</p>
+</div>
 
-    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-
-	<h1 n:ifset="$title">{$title}</h1>
-	{include #content}
-
-</section>
-
-
-<footer>
-    <p>&copy; Ján Mochňak 2012-2013, running on Nette Framework 2.0.8 <code>2345j2k3h4j124h1k23</code> </p>
-</footer>
-
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+        tinymce.init({ selector:'textarea.tinymce' });
+</script>
 </body>
 </html>
