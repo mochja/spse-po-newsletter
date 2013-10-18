@@ -17,7 +17,7 @@
 	<script>
 		$(function () {
 			$('.open-popup-link').magnificPopup({ type:'inline' });
-			$('#main > article').each(function () {
+			$('#main > article, aside > article').each(function () {
 					$(this).magnificPopup({
 						type: 'image',
 						delegate: 'a[rel="magnific-gallery"]',
