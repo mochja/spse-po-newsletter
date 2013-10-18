@@ -17,6 +17,13 @@
 	<script>
 		$(function () {
 			$('.open-popup-link').magnificPopup({ type:'inline' });
+			$('#main > article').each(function () {
+					$(this).magnificPopup({
+						type: 'image',
+						delegate: 'a[rel="magnific-gallery"]',
+						gallery: { enabled: true }
+					});
+			});
 		});
 	</script>
 	{block head}{/block}

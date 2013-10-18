@@ -83,7 +83,7 @@ $(function() {
 
 	insertBtn.click(function (e) {
 		e.preventDefault();
-		var link = '<a href="'+imgLink.val()+'" rel="lightbox"><img class="'+imgClass.val()+'" alt="'+imgAlt.val()+'" src="'+ imgUrl.val() +'" /></a>';
+		var link = '<a href="'+imgLink.val()+'" rel="magnific-gallery"><img class="'+imgClass.val()+'" alt="'+imgAlt.val()+'" src="'+ imgUrl.val() +'" /></a>';
 		var id = 'image_'+(Object.keys(links).length+1);
 		links[id] = link;
 		$('.myedit').insertAtCaret('{'+id+'}');
