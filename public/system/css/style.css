@@ -217,10 +217,11 @@ b {
 
 article > ul {
 	margin: 0 0 0 45px;
-	list-style: disc inside;
+	list-style: disc outside;
 	text-align: justify;
 	line-height: 1.2em;
 	letter-spacing: 0.055em;
+	padding-right: 5px;
 }
 
 article > ul > li {
