@@ -34,7 +34,7 @@ class DefaultPresenter extends \BasePresenter
 
 		if ($last) {
 			$last = $this->newsletter->buildDatetime($last->number);
-			$this->redirect('show', $last->format('Y'), $last->format('n'));
+			$this->redirect('show', $last->format('Y'), $last->format('m'));
 		} else {
 			throw new \Nette\Application\BadRequestException;
 		}
@@ -43,6 +43,13 @@ class DefaultPresenter extends \BasePresenter
 	public function actionShow($year, $month)
 	{
 		$state = $this->getUser()->isLoggedIn() ? array(0, 1) : 1;
+
+		if ($month < 10) {
+			$redirMonth = '0'.(int)$month;
+			if ($month !== $redirMonth) {
+				$this->redirect('this', $year, $redirMonth);
+			}
+		}
 
 		$date = new \DateTime($year.'-'.$month.'-01');
 		$numberHash = $this->newsletter->dateToNumber($date);

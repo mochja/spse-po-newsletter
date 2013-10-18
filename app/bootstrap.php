@@ -32,7 +32,7 @@ $container = $configurator->createContainer();
 
 $container->router[] = $frontRouter = new RouteList('Front');
 $frontRouter[] = new Route('', 'Default:default');
-$frontRouter[] = new Route('<year>-<month>', 'Default:show');
+$frontRouter[] = new Route('<year 2\d{3}>-<month \d{1,2}>/', 'Default:show');
 
 $container->router[] = $adminRouter = new RouteList('Admin');
 $adminRouter[] = new Route('admin/<presenter>/<action>[/<id>]', 'Default:default');
