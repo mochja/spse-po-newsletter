@@ -252,3 +252,12 @@ aside > article img.left {
 aside > article img.right {
     width: 170px;
 }
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 900px;
+  margin: 20px auto;
+}
