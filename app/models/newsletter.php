@@ -14,6 +14,21 @@ class Newsletter extends \Nette\Object
 
 	private $articleTypes = array();
 
+	private static $months = array(
+		'Január',
+		'Február',
+		'Marec',
+		'Apríl',
+		'Máj',
+		'Jún',
+		'Júl',
+		'August',
+		'September',
+		'Október',
+		'November',
+		'December'
+	);
+
 	public function __construct(\Nette\Database\Connection $db)
 	{
 		$this->db = $db;
@@ -85,8 +100,7 @@ class Newsletter extends \Nette\Object
 		$template->registerFilter(new \Nette\Latte\Engine);
 		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
 
-		$datetime = self::buildDatetime( $newsletter->number );
-		$number = $template->number = $datetime->format('Y'). '-' .$datetime->format('n');
+		$number = $template->number = self::buildNumber($newsletter->number);
 
 		$template->articles = $this->db->table('newsletter_article')
 			->where('type', 0)
@@ -114,34 +128,48 @@ class Newsletter extends \Nette\Object
 	}
 
 	/**
-	 * 512 -> 5/2012
-	 * defined as nformat helper in template, see basePresenter
+	 * 125 -> 2012-5
 	 */
 	public static function buildNumber($int)
 	{
-		return floor($int / 100) . "/" . "20" . ($int-floor($int / 100)*100);
+		return '20'.substr($int, 0, 2).'-'.str_pad(substr($int, 2), 2, '0', STR_PAD_LEFT);
+	}
+
+	/**
+	 * 125 - 5/2013
+	 * defined as nformat helper in template, see basePresenter
+	 */
+	public static function buildFriendlyNumber($int)
+	{
+		return substr($int, 2).'/'.'20'.substr($int, 0, 2);
 	}
 
 	public static function buildDatetime($int)
 	{
-		return new \DateTime("20" . ($int-floor($int / 100)*100)."-".floor($int / 100)."-01");
-	}
-
-	public static function genNewNumbers()
-	{
-		$d = new \DateTime();
-		$date = $d->modify("-1 month");
-		$list = array();
-		for ( $i = 0; $i < 30; $i++ ) {
-			$list[(int) self::date_to_number($date)] = $date->format("n")."/".$date->format("Y");
-			$date->modify("+1 month");
-		}
-		return $list;
+		return new \DateTime(self::buildNumber($int)."-01");
 	}
 
 	public static function dateToNumber(\DateTime $date)
 	{
-		return (int)($date->format("n").$date->format("y"));
+		return (int)($date->format("y").$date->format("n"));
+	}
+
+	public static function getMonthName($month)
+	{
+		return self::$months[$month];
+	}
+
+	/**
+	 * from 9 to 6 next year
+	 */
+	public static function getSchoolYear($date)
+	{
+		$month = $date->format('n');
+		if ($month >= 9 && $month <= 12) {
+			return $date->format('Y');
+		} else {
+			return $date->format('Y') - 1;
+		}
 	}
 
 }

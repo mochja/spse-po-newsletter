@@ -6,7 +6,7 @@
 <body>
 <img src="http://www.spse-po.sk/newsletter/resources/mailheader_{$number}.png">
 
-<br><a href="http://www.spse-po.sk/newsletter/{$number}">http://www.spse-po.sk/newsletter/{$number}</a><br>
+<br><a href="http://www.spse-po.sk/newsletter/{$number}/">http://www.spse-po.sk/newsletter/{$number}/</a><br>
 
 <table width="950px">
 
@@ -21,7 +21,7 @@
 <ul>
 	<li n:foreach="$classes as $class">{$class->title}</li>
 </ul>
-<a href="http://www.spse-po.sk/newsletter/{$number}#aktivity-tried">viac...</a>
+<a href="http://www.spse-po.sk/newsletter/{$number}/#aktivity-tried">viac...</a>
 </td></tr>
 
 <tr><td>
@@ -29,7 +29,7 @@
 <ul style="margin:0;">
 	<li n:foreach="$tops as $top">{$top->title}</li>
 </ul>
-<a href="http://www.spse-po.sk/newsletter/{$number}">viac...</a>
+<a href="http://www.spse-po.sk/newsletter/{$number}/">viac...</a>
 
 </td></tr>
 

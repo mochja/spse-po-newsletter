@@ -84,6 +84,22 @@ class DefaultPresenter extends \BasePresenter
 		$this->template->articles = $article_map;
 	}
 
+	public function actionList()
+	{
+		$newsletters = array();
+		$from = strtotime('2013-09-01');
+		foreach ($this->newsletter->table as $newsletter) {
+			$date = Newsletter::buildDatetime( $newsletter->number );
+			if ( $date->getTimestamp() < $from) continue;
+			$year = Newsletter::getSchoolYear( $date );
+			if (!isset($newsletters[$year]) || !is_array($newsletters[$year]) ) {
+				$newsletters[$year] = array();
+			}
+			$newsletters[$year][] = array($date, Newsletter::getMonthName($date->format('n') - 1));
+		}
+		$this->template->newsletters = $newsletters;
+	}
+
 	public function injectDatabase(\Nette\Database\Connection $database)
 	{
 		$this->database = $database;

@@ -49,7 +49,7 @@ class NewsletterPresenter extends \BasePresenter
 	{
 		$form = $this['newsletterForm'];
 		$form->setDefaults(array(
-			'number' => Newsletter::buildNumber(Newsletter::dateToNumber(new \DateTime))
+			'number' => Newsletter::buildFriendlyNumber(Newsletter::dateToNumber(new \DateTime))
 		));
 		$form['state']->setDisabled();
 	}
@@ -60,7 +60,7 @@ class NewsletterPresenter extends \BasePresenter
 
 		$form = $this['newsletterForm'];
 		$form->setDefaults(array(
-			'number' => Newsletter::buildNumber($newsletter->number),
+			'number' => Newsletter::buildFriendlyNumber($newsletter->number),
 			'state' => $newsletter->state
 		));
 
@@ -80,7 +80,7 @@ class NewsletterPresenter extends \BasePresenter
 		}
 
 		$this->template->articles = $article_map;
-		$this->template->number = Newsletter::buildNumber($newsletter->number);
+		$this->template->number = Newsletter::buildFriendlyNumber($newsletter->number);
 	}
 
 	public function actionNewContent($id, $type)
@@ -163,8 +163,8 @@ class NewsletterPresenter extends \BasePresenter
 	{
 		$values = $form->values;
 		sscanf($values['number'], '%d/%d', $month, $year);
-		$year = $year > 1999 ? $year - 2000 : $year;
-		$values['number'] = (int)($month.$year);
+		$year = $year > 999 ? $year - (floor($year/1000) * 1000) : $year;
+		$values['number'] = (int)$year.(int)$month;
 		$values['published'] = null;
 
 		if ($this->getAction() == 'add') {

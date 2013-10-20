@@ -5,7 +5,7 @@
 	<meta name="description" content="SPŠE-PO Newsletter">
 	<meta name="author" content="janmochnak@gmail.com">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
-	<title>impulz - Newsletter SPŠE Prešov</title>
+	<title>impulz {$date} - Newsletter SPŠE Prešov</title>
 	<link rel="stylesheet" media="all" href="{$basePath}/system/css/reset.css" type="text/css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/system/css/style.css" type="text/css">
 	<link rel="stylesheet" media="print" href="{$basePath}/system/css/print.css" type="text/css" />
@@ -33,7 +33,7 @@
 	<body>
 		<header>
 			<img src="{$basePath}/system/images/newsletter.gif" width="950px" height="300px" style="position: absolute;"/>
-			<h3>{block date}{/block}</h3>
+			<h3>{$date}</h3>
 		</header>
 
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>

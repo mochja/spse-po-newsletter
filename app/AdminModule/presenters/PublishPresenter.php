@@ -46,9 +46,8 @@ class PublishPresenter extends \BasePresenter
 
 		$numbers = array();
 
-		foreach ($this->newsletter->table as $row) {
-			$datetime = $this->newsletter->buildDatetime( $row->number );
-			$numbers[$row->id] = $datetime->format('Y'). '-' .$datetime->format('n');
+		foreach ($this->newsletter->table->order('id DESC') as $row) {
+			$numbers[$row->id] = Newsletter::buildNumber($row->number);
 		}
 
 		$form->addSelect('newsletter_id', 'Publikácia newslettera: ', $numbers);

@@ -1,5 +1,4 @@
-
-{block date}{$newsletter->number|nformat}{/block}
+{var $date = $template->nformat($newsletter->number)}
 
 {block head}
 <style type="text/css">
