@@ -1,11 +1,15 @@
+<br><br>
 <div class="newsletter-list" n:foreach="$newsletters as $year => $item">
 	<h3>Školský rok {$year}/{$year+1}</h3>
-	<div class="newsletter" n:foreach="$item as $newsletter">
+	{foreach $item as $newsletter}
+	<div class="newsletter">
 		<a n:href="show, $newsletter[0]->format(Y), $newsletter[0]->format(m)">
 			<img width="80" height="70" src="http://spse-po.sk/newsletter/resources/t_{$newsletter[0]->format(Y)}-{$newsletter[0]->format(m)}.png" />
 			<div class="description">{$newsletter[1]} {$newsletter[0]->format(Y)}</div>
 		</a>
 	</div>
+	<div style="clear: both" n:if="$iterator->counter % 5 === 0"></div>
+	{/foreach}
 </div>
 
 <style>
@@ -26,7 +30,10 @@
 	width: 108px;
 	height: 95px;
 	float: left;
+	text-align: center;
+	margin: 3px 2px;
 }
+.newsletter img { margin: auto; width: 80px; height: 70px; }
 .newsletter .description {
 	font-size: 8pt;
 	padding: 0 4px;
