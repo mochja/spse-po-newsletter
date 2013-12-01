@@ -117,6 +117,21 @@ class PublishPresenter extends \BasePresenter
 		$this->mc->campaigns->sendTest($cid, array('janmochnak@icloud.com'), 'html');
 	}
 
+	public function actionSchedule($cid)
+	{
+		try {
+			$schedule = $this->mc->campaigns->schedule($cid, (new \DateTime('tomorrow'))->format('Y-m-d 00:00:00') );
+		} catch (\Exception $e ) {
+		}
+
+		if (isset($schedule['complete']) && $schedule['complete'] === TRUE) {
+			$this->flashMessage('Campaign was successfuly scheduled.');
+		} else {
+			$this->flashMessage('Campaign could not be scheduled', 'error');
+		}
+		$this->redirect('default');
+	}
+
 	public function actionRemoveCampaign($cid)
 	{
 		$this->mc->campaigns->delete($cid);
