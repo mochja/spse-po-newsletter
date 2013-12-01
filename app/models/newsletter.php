@@ -92,11 +92,15 @@ class Newsletter extends \Nette\Object
 		return $this->db->table('newsletter_article')->find($id)->update($values);
 	}
 
-	public function generateTemplate($id)
+	public function generateTemplate($id, $templateFile = NULL)
 	{
 		$newsletter = $this->get((int) $id);
 
-		$template = new \Nette\Templating\FileTemplate(__DIR__.'/../AdminModule/templates/email.latte');
+		if ($templateFile === NULL) {
+			$templateFile = __DIR__.'/../AdminModule/templates/email.latte';
+		}
+
+		$template = new \Nette\Templating\FileTemplate($templateFile);
 		$template->registerFilter(new \Nette\Latte\Engine);
 		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
 

@@ -2,3 +2,10 @@
 
 {block content}
 {control publishForm}
+
+
+<ul>
+	<li n:foreach="$campaigns[data] as $c">
+		<a n:href="campaign, $c[id]">{$c[title]}</a>
+	</li>
+</ul>

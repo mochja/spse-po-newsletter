@@ -1,0 +1,23 @@
+<a href="http://www.spse-po.sk/newsletter/{$number}"><span class="h1">Impulz Newsletter - {$number}</span></a>
+<br />
+<br />
+
+{foreach $articles as $article}
+<a href="http://www.spse-po.sk/newsletter/{$number}/#{$article->title|webalize}"><span class="h3">{$article->title}</span></a>
+<p>{$article->html|striptags|truncate:rand(150, 250)}</p>
+<br />
+{/}
+
+<br />
+
+<a href="http://www.spse-po.sk/newsletter/{$number}/#aktivity-tried"><span class="h3">Aktivity tried</span></a>
+<ul>
+	<li n:foreach="$classes as $class">{$class->title}</li>
+</ul>
+<br />
+<br />
+
+<a href="http://www.spse-po.sk/newsletter/{$number}/#aktivity-tried"><span class="h3">Top udalosti mesiaca</span></a>
+<ul>
+ 	<li n:foreach="$tops as $top">{$top->title}</li>
+</ul>
