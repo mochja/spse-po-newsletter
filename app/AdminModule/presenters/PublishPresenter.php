@@ -119,15 +119,15 @@ class PublishPresenter extends \BasePresenter
 
 	public function actionSchedule($cid)
 	{
+		$date = new \DateTime('tomorrow');
 		try {
-			$schedule = $this->mc->campaigns->schedule($cid, (new \DateTime('tomorrow'))->format('Y-m-d 00:00:00') );
+			$schedule = $this->mc->campaigns->schedule($cid, $date->format('Y-m-d 00:00:00') );
 		} catch (\Exception $e ) {
+			$this->flashMessage('Campaign could not be scheduled', 'error');
 		}
 
 		if (isset($schedule['complete']) && $schedule['complete'] === TRUE) {
 			$this->flashMessage('Campaign was successfuly scheduled.');
-		} else {
-			$this->flashMessage('Campaign could not be scheduled', 'error');
 		}
 		$this->redirect('default');
 	}
