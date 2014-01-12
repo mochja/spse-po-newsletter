@@ -88,7 +88,7 @@ class DefaultPresenter extends \BasePresenter
 	{
 		$newsletters = array();
 		$from = strtotime('2013-09-01');
-		foreach ($this->newsletter->table->where('published > NOW()')->where('state = 1') as $newsletter) {
+		foreach ($this->newsletter->table->where('published < NOW()')->where('state = 1') as $newsletter) {
 			$date = Newsletter::buildDatetime( $newsletter->number );
 			if ( $date->getTimestamp() < $from) continue;
 			$year = Newsletter::getSchoolYear( $date );
