@@ -8,13 +8,57 @@
     <link rel="stylesheet" href="{$basePath}/system/css/admin/style.css">
     <link rel="stylesheet" href="{$basePath}/system/css/admin/entypo/stylesheet.css">
 	<link rel="stylesheet" href="{$basePath}/system/css/jquery.modal.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+
+    <script src="{$basePath}/system/js/netteForms.js"></script>
+
 	<script src="{$basePath}/system/js/jquery-1.7.2.min.js"></script>
-    <script src="{$basePath}/system/js/jquery-ui-1.8.20.custom.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="{$basePath}/system/js/jquery.modal.min.js"></script>
+
+    <script src="{$basePath}/system/js/jquery-ui-timepicker-addon.js"></script>
+    <script src="{$basePath}/system/js/dateinput.jquery.js"></script>
+    <script src="{$basePath}/system/js/dateinput.js"></script>
 
 	<style>
         .iconable { font-family: EntypoRegular; font-size: 32px; text-decoration: none; color: black; }
         .icon { line-height: 26px; }
+        /* css for timepicker */
+        .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+        .ui-timepicker-div dl { text-align: left; }
+        .ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+        .ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+        .ui-timepicker-div td { font-size: 90%; }
+        .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+        .ui-timepicker-rtl{ direction: rtl; }
+        .ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+        .ui-timepicker-rtl dl dt{ float: right; clear: right; }
+        .ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+        /* for week- and month-picker */
+        .ui-datepicker-calendar tr:hover .ui-datepicker-week a,
+        .ui-datepicker-calendar tbody:hover .ui-datepicker-month a { /* ui-state-hover */
+            background: #fdf5ce url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x;
+            border: 1px solid #fbcb09;
+            font-weight: bold;
+            color: #c77405;
+            text-decoration: none;
+        }
+        .ui-datepicker-calendar tr .ui-datepicker-week.ui-datepicker-week-current a,
+        .ui-datepicker-calendar tbody .ui-datepicker-month.ui-datepicker-month-current a { /* ui-state-highlight */
+            background: #ffe45c url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x;
+            border: 1px solid #fed22f;
+            color: #363636;
+        }
+        .ui-datepicker-calendar tr .ui-datepicker-week.ui-datepicker-week-selected a,
+        .ui-datepicker-calendar tbody .ui-datepicker-month.ui-datepicker-month-selected a { /* ui-state-active */
+            background: url("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png") repeat-x scroll 50% 50% #FFFFFF;
+            border: 1px solid #fbd850;
+            color: #eb8f00;
+            font-weight: bold;
+            text-decoration: none;
+        }
     </style>
 
     <script>

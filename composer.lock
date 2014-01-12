@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "14cf1b3b0c0a6fd92df4d85f58a962fa",
+    "hash": "67209c456324f4e4d2654c900e95d551",
     "packages": [
         {
             "name": "mailchimp/mailchimp",
@@ -50,16 +50,16 @@
         },
         {
             "name": "michelf/php-markdown",
-            "version": "dev-lib",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/michelf/php-markdown.git",
-                "reference": "6f952ee180e9bd345f3dd6005aa11e0f5dcbd1b8"
+                "reference": "96d8150406f67e683ef4acc09fef91785fef1266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/6f952ee180e9bd345f3dd6005aa11e0f5dcbd1b8",
-                "reference": "6f952ee180e9bd345f3dd6005aa11e0f5dcbd1b8",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/96d8150406f67e683ef4acc09fef91785fef1266",
+                "reference": "96d8150406f67e683ef4acc09fef91785fef1266",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +97,7 @@
             "keywords": [
                 "markdown"
             ],
-            "time": "2013-11-29 21:49:31"
+            "time": "2013-11-29 17:09:24"
         },
         {
             "name": "nette/nette",
@@ -172,6 +172,50 @@
                 "templating"
             ],
             "time": "2013-11-05 18:47:49"
+        },
+        {
+            "name": "voda/date-input",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voda/DateInput.git",
+                "reference": "f948c6d4eb2ffa8bfe9fc8ed5e6ef9c650751f27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voda/DateInput/zipball/f948c6d4eb2ffa8bfe9fc8ed5e6ef9c650751f27",
+                "reference": "f948c6d4eb2ffa8bfe9fc8ed5e6ef9c650751f27",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "2.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Vodacek\\Forms\\Controls\\DateInput": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ondřej Vodáček",
+                    "email": "ondrej.vodacek@gmail.com"
+                }
+            ],
+            "description": "HTML 5 compatible date / time input field for Nette.",
+            "keywords": [
+                "calendar",
+                "date",
+                "form",
+                "input",
+                "nette"
+            ],
+            "time": "2013-12-19 21:26:28"
         }
     ],
     "packages-dev": [
@@ -181,9 +225,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "michelf/php-markdown": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3.2"
     },

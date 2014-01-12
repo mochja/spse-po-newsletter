@@ -7,6 +7,7 @@ use \spse\newsletter\model\Newsletter;
 use \Michelf\MarkdownExtra;
 use \Custom\Finder;
 use \Nette\Database\Connection;
+use Vodacek\Forms\Controls\DateInput;
 
 /**
  * Admin area, just for authentificated
@@ -61,7 +62,7 @@ class NewsletterPresenter extends \BasePresenter
 		$form = $this['newsletterForm'];
 		$form->setDefaults(array(
 			'number' => Newsletter::buildFriendlyNumber($newsletter->number),
-			'state' => $newsletter->state
+			'state' => !$newsletter->state
 		));
 
 		$articles = $this->database->table('newsletter_article')
@@ -152,7 +153,10 @@ class NewsletterPresenter extends \BasePresenter
 		$form->addText('number', 'Vydanie', 10, Newsletter::dateToNumber(new \DateTime))
 			->addRule(Form::MIN_LENGTH, 'Vydanie musí obsahovať aspoň %d znaky.', 4)
 			->addRule(Form::PATTERN, 'Nesprávny formát vydania, zadávajte vo formáte mesiac/rok. napr.: 5/13, 5/2013', '([0-9]{1,2}/[0-9]{2,4})');
-		$form->addCheckbox('state', 'Publikovať');
+		$form->addDate('published', 'Publikovat od', DateInput::TYPE_DATETIME)
+			->setDefaultValue(new \DateTime('+ 1 week'));
+		$form->addCheckbox('state', 'Len pre admina')
+			->setDefaultValue(true);
 		$form->addSubmit('s', 'Uložiť');
 
 		$form->onSuccess[] = callback($this, 'onNewsletterFormSuccess');
@@ -165,7 +169,6 @@ class NewsletterPresenter extends \BasePresenter
 		sscanf($values['number'], '%d/%d', $month, $year);
 		$year = $year > 999 ? $year - (floor($year/1000) * 1000) : $year;
 		$values['number'] = (int)$year.(int)$month;
-		$values['published'] = null;
 
 		if ($this->getAction() == 'add') {
 			$values['state'] = 0;
@@ -180,7 +183,7 @@ class NewsletterPresenter extends \BasePresenter
 			}
 		} else {
 			try {
-				$values['state'] = isset($values['state']) && $values['state'] == 1 ? $values['state'] : 0;
+				$values['state'] = !$values['state'];
 				$this->newsletter->update((int) $this->getParameter('id'), $values);
 				$this->redirect('edit', $this->getParameter('id'));
 			} catch(\PDOException $e) {

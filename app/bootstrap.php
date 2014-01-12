@@ -39,5 +39,7 @@ $frontRouter[] = new Route('list', 'Default:list');
 $container->router[] = $adminRouter = new RouteList('Admin');
 $adminRouter[] = new Route('admin/<presenter>/<action>[/<id>]', 'Default:default');
 
+Vodacek\Forms\Controls\DateInput::register();
+
 // Configure and run the application!
 $container->application->run();
