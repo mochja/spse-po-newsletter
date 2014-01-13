@@ -62,7 +62,7 @@ class NewsletterPresenter extends \BasePresenter
 		$form = $this['newsletterForm'];
 		$form->setDefaults(array(
 			'number' => Newsletter::buildFriendlyNumber($newsletter->number),
-			'state' => !$newsletter->state
+			'state' => (bool) !$newsletter->state
 		));
 
 		$articles = $this->database->table('newsletter_article')
