@@ -10,7 +10,9 @@
 <br><br>
 Typ: {input type}
 <br><br>
-<a href="#insert-image" rel="modal:open">Pridať obrázok</a> <a href="{link Newsletter:modal}" rel="modal:open">Zobraziť galériu</a><br><br>
+<a href="#insert-image" rel="modal:open">Pridať obrázok</a>
+<a href="{link Newsletter:modal}" rel="modal:open">Zobraziť galériu</a>
+<a href="#" class="parse-article">Parse</a><br><br>
 {input text, class=>'myedit', placeholder=>MarkdownText}
 
 <br><br>{input submit}<br><br>
@@ -88,6 +90,14 @@ $(function() {
 		links[id] = link;
 		$('.myedit').insertAtCaret('{'+id+'}');
 		$.modal.close();
+	});
+
+	$(".parse-article").click(function(e) {
+		e.preventDefault();
+		var article = $.trim(textarea.val()).split('\n');
+		$("#frmnewsletterContentForm-title").val(article.shift().trim());
+		$("#frmnewsletterContentForm-author").val(article.pop().trim());
+		textarea.val(article.join('\n').trim());
 	});
 
 });
