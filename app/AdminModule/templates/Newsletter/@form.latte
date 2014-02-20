@@ -97,7 +97,7 @@ $(function() {
 		var article = $.trim(textarea.val()).split('\n');
 		$("#frmnewsletterContentForm-title").val(article.shift().trim());
 		$("#frmnewsletterContentForm-author").val(article.pop().trim());
-		textarea.val(article.join('\n').trim());
+		textarea.val(article.join('\n\n').trim());
 	});
 
 });
