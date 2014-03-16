@@ -124,6 +124,17 @@ article img {
     /*border: 1px solid black;*/
 }
 
+article ol {
+	counter-reset: item;
+	margin-left: 25px;
+	text-align: justify;
+	line-height: 1.2em;
+	letter-spacing: 0.055em;
+	padding-right: 10px;
+}
+article ol > li { list-style: none; list-style-position: inside }
+article ol > li:before { content: counters(item, ".") ". "; counter-increment: item }
+
 article strong {
     font-weight: bold;
 }
@@ -215,7 +226,7 @@ b {
 	font-weight: bold;
 }
 
-article > ul {
+article ul {
 	margin: 0 0 0 45px;
 	list-style: disc outside;
 	text-align: justify;
@@ -224,7 +235,7 @@ article > ul {
 	padding-right: 5px;
 }
 
-article > ul > li {
+article li {
 	padding: 1px 0;
 }
 
@@ -243,12 +254,6 @@ a > img {
 	cursor: pointer !important;
 }
 
-ol {
-	list-style-type: decimal;
-	list-style-position: inside;
-	padding-left: 15px;
-}
-
 aside > article img.left {
     width: 170px;
 }
@@ -265,3 +270,4 @@ aside > article img.right {
   max-width: 900px;
   margin: 20px auto;
 }
+
