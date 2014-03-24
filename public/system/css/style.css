@@ -3,8 +3,6 @@
  * @copyright 2012 SPSE_PO <spse-po.sk>
  */
 
-
-
 body { width:950px; margin:30px auto; font-size: 12pt; font-family: "Times New Roman", serif; }
 
 body > header {
@@ -65,7 +63,6 @@ header > h3 {
 	font-family: Arial, sans-serif;
 	font-size: 2.4em;
 	font-weight: 700;
-	letter-spacing: 0.035em;
 }
 
 section#main {
@@ -102,7 +99,6 @@ article > p {
 	text-align: justify;
 	margin: 5px;
 	line-height: 1.2em;
-	letter-spacing: 0.055em;
 }
 
 article > p + p {
@@ -129,7 +125,6 @@ article ol {
 	margin-left: 25px;
 	text-align: justify;
 	line-height: 1.2em;
-	letter-spacing: 0.055em;
 	padding-right: 10px;
 }
 article ol > li { list-style: none; list-style-position: inside }
@@ -169,6 +164,7 @@ article table {
     border-collapse: collapse;
     border: 1px solid black;
     margin: 10px auto;
+    max-width: 95%;
 }
 
 article table td, article table th {
@@ -231,7 +227,6 @@ article ul {
 	list-style: disc outside;
 	text-align: justify;
 	line-height: 1.2em;
-	letter-spacing: 0.055em;
 	padding-right: 5px;
 }
 
