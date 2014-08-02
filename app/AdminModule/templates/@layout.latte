@@ -70,6 +70,15 @@
         .error li {
             padding: 10px;
         }
+        .flash {
+            margin: 0 0 10px 0;
+            padding: 10px;
+            font-weight: 700;
+        }
+        .flash.info {
+            border: 1px solid #00ff00;
+            background: rgba(0, 255, 0, 0.3);
+        }
     </style>
 
     <script>
@@ -100,11 +109,12 @@
                 <li><a n:href="sponsors">Sponzori</a></li>
                 <li{ifCurrent Publish:*} class="active"{/ifCurrent}><a n:href="Publish:">Odoslať newsletter</a></li>
                 <li><a n:href=":Front:Default:default">web</a></li>
+                <li><a n:href="Sign:out">Odhlásiť</a></li>
             {else}
                 <li class="active"><a n:href="Sign:in">Prihlásiť</a></li>
             {/}
             </ul>
-            <div class="right">Welcome <strong>Jan Mochnak</strong></div>
+            <div class="right" n:if="$user->isLoggedIn()">Vitaj <strong>{$user->getIdentity()->full_name}</strong></div>
         </nav>
     </div>
     <div id="main-container">
@@ -121,7 +131,7 @@
 </div>
 
 <div id="footer">
-    <p class="right">&copy;2013, Jan Mochnak</p>
+    <p class="right">&copy;2012, Jan Mochnak</p>
 </div>
 </body>
 </html>

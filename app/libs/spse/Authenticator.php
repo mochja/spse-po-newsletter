@@ -31,14 +31,16 @@ class Authenticator extends \Nette\Object implements NS\IAuthenticator
             throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
         }
 
-	    $imap = \imap_open("{localhost:143/imap/novalidate-cert}", $username, $password);
+        $imap = \imap_open("{localhost:143/imap/novalidate-cert}", $username, $password);
 
-	    if (!$imap) {
+        if (!$imap) {
             throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
         }
-		\imap_close($imap);
+        \imap_close($imap);
+
+        $credentials['full_name'] = exec('cat /etc/passwd | grep -Ew ^'.escapeshellarg($username).' | cut -d: -f5 | cut -d, -f1');
         
-        return new NS\Identity($username, 'admin', $credentials);
+        return new NS\Identity($username, array('admin'), $credentials);
     }
 
 }
