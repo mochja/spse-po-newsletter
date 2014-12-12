@@ -26,53 +26,6 @@ class PublishPresenter extends \BasePresenter
 	/** @var \Mailchimp */
 	private $mc;
 
-	/*
-	array(38) {
-	   id => "627f354b56" (10)
-	   web_id => 269881
-	   list_id => "35de46fc1c" (10)
-	   folder_id => 0
-	   template_id => 48405
-	   content_type => "template" (8)
-	   content_edited_by => "Ján Mochňak" (13)
-	   title => "Newsletter Impulz - December 2013" (33)
-	   type => "regular" (7)
-	   create_time => "2013-12-01 16:15:18" (19)
-	   send_time => NULL
-	   content_updated_time => "2013-12-01 16:15:18" (19)
-	   status => "save" (4)
-	   from_name => "Newsletter Impulz" (17)
-	   from_email => "impulz@spse-po.sk" (17)
-	   subject => NULL
-	   to_name => ""
-	   archive_url => "http://eepurl.com/JRR4L" (23)
-	   archive_url_long => "http://us3.campaign-archive1.com/?u=d91b53242c6d3a8eafeea55e1&id=627f354b56" (75)
-	   emails_sent => 0
-	   inline_css => FALSE
-	   analytics => "N"
-	   analytics_tag => ""
-	   authenticate => FALSE
-	   ecomm360 => FALSE
-	   auto_tweet => FALSE
-	   auto_fb_post => ""
-	   auto_footer => FALSE
-	   timewarp => FALSE
-	   timewarp_schedule => NULL
-	   tracking => array(3) {
-	      html_clicks => TRUE
-	      text_clicks => TRUE
-	      opens => TRUE
-	   }
-	   parent_id => ""
-	   tests_sent => 0
-	   tests_remain => 12
-	   segment_text => "No segment used" (15)
-	   segment_opts => array(0)
-	   saved_segment => array(0)
-	   type_opts => array(0)
-	}
-	*/
-
 	public function actionDefault()
 	{
 		$this->template->campaigns = $this->mc->campaigns->getList();
